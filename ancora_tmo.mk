@@ -153,6 +153,9 @@ PRODUCT_PACKAGES += \
 # For userdebug builds
 ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.secure=0 \
+	
+PRODUCT_PACKAGES += \
+    sensors.ancora_tmo
     
 # Kernel
 ifeq ($(TARGET_PREBUILT_KERNEL),)
