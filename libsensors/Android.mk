@@ -29,7 +29,7 @@ LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)/hw
 LOCAL_MODULE_TAGS := optional
 
 LOCAL_CFLAGS := -DLOG_TAG=\"Sensors\"
-				                -Wall -Wextra
+#				                -Wall -Wextra
 
 LOCAL_SRC_FILES := 				\
 			sensors.cpp 		\
@@ -49,16 +49,16 @@ LOCAL_PRELINK_MODULE := false
 #ifeq ($(AKMD_DEVICE_TYPE), 8963)
 #LOCAL_CFLAGS  += -DHAL_FOR_AK8963
 
-export AKMD_DEVICE_TYPE=8975
-ifeq ($(AKMD_DEVICE_TYPE), 8975)
-LOCAL_CFLAGS  += -DHAL_FOR_AK8975
+#export AKMD_DEVICE_TYPE=8975
+#ifeq ($(AKMD_DEVICE_TYPE), 8975)
+#LOCAL_CFLAGS  += -DHAL_FOR_AK8975
 
 #else ifeq ($(AKMD_DEVICE_TYPE), 9911)
 #LOCAL_CFLAGS  += -DHAL_FOR_AK09911
 
-else
-$(error AKMD_DEVICE_TYPE is not defined)
-endif
+#else
+#$(error AKMD_DEVICE_TYPE is not defined)
+#endif
 
 include $(BUILD_SHARED_LIBRARY)
 
