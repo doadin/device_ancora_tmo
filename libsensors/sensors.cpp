@@ -59,16 +59,10 @@ static const struct sensor_t sSensorList[] = {
           "Bosch",
           1, SENSORS_ACCELERATION_HANDLE,
           SENSOR_TYPE_ACCELEROMETER, RANGE_A, RESOLUTION_A, 0.2f, 10000, { } },
-	    { "AK8975 3-axis Magnetic field sensor",
-		    "Asahi Kasei Microdevices",
-		    1,  
-		    SENSORS_MAGNETIC_FIELD_HANDLE,
-		    SENSOR_TYPE_MAGNETIC_FIELD,
-		    1228.8f,
-		    CONVERT_M,
-		    0.35f,
-		    10000,
-		    { } },
+	{ "AK8975 3-axis Magnetic field sensor",	73
+	  "Asahi Kasei Microdevices",	74
+          1, SENSORS_MAGNETIC_FIELD_HANDLE,	75
+          SENSOR_TYPE_MAGNETIC_FIELD, 2000.0f, CONVERT_M, 6.8f, 16667, { } },
         { "MS-3C Orientation Sensor",
           "Yamaha",
           1, SENSORS_ORIENTATION_HANDLE,
@@ -77,27 +71,6 @@ static const struct sensor_t sSensorList[] = {
           "Sharp",
           1, SENSORS_PROXIMITY_HANDLE,
           SENSOR_TYPE_PROXIMITY, 5.0f, 5.0f, 0.75f, 0, { } },
-		{ "AKM Orientation sensor",
-		  "Asahi Kasei Microdevices",
-		  1,
-		  SENSORS_ORIENTATION_HANDLE,
-		  SENSOR_TYPE_ORIENTATION,
-		  360.0f,
-		  CONVERT_OR,
-		  1.0f,
-		  10000,
-		  { } },
-	    { "AKM Rotation vector sensor",
-		  "Asahi Kasei Microdevices",
-		  1,
-		  SENSORS_ROTATION_VECTOR_HANDLE,
-		  SENSOR_TYPE_ROTATION_VECTOR,
-		  34.907f,
-		  CONVERT_RV,
-		  1.0f,
-		  10000,
-		  { } }
-};
 };
 
 
