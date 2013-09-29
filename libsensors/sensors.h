@@ -51,17 +51,28 @@ __BEGIN_DECLS
 
 /*****************************************************************************/
 
+/* For Accelerometer */
 #define EVENT_TYPE_ACCEL_X          REL_X
 #define EVENT_TYPE_ACCEL_Y          REL_Y
 #define EVENT_TYPE_ACCEL_Z          REL_Z
+#define EVENT_TYPE_ACCEL_STATUS     ABS_RX
 
+/* Fusion Orientaion */
 #define EVENT_TYPE_YAW              REL_X
 #define EVENT_TYPE_PITCH            REL_Y
 #define EVENT_TYPE_ROLL             REL_Z
 
-#define EVENT_TYPE_MAGV_X           ABS_X
-#define EVENT_TYPE_MAGV_Y           ABS_Y
-#define EVENT_TYPE_MAGV_Z           ABS_Z
+/* Fusion Rotation Vector */
+#define EVENT_TYPE_ROTVEC_X         ABS_TILT_X
+#define EVENT_TYPE_ROTVEC_Y         ABS_TILT_Y
+#define EVENT_TYPE_ROTVEC_Z         ABS_TOOL_WIDTH
+#define EVENT_TYPE_ROTVEC_W			ABS_VOLUME
+
+/* For Magnetometer */
+#define EVENT_TYPE_MAGV_X           ABS_RY
+#define EVENT_TYPE_MAGV_Y           ABS_RZ
+#define EVENT_TYPE_MAGV_Z           ABS_THROTTLE
+#define EVENT_TYPE_MAGV_STATUS      ABS_RUDDER
 
 #define EVENT_TYPE_PROXIMITY        ABS_DISTANCE
 #define EVENT_TYPE_LIGHT            ABS_MISC
@@ -89,6 +100,8 @@ __BEGIN_DECLS
 #define CONVERT_O_A                 (CONVERT_O)
 #define CONVERT_O_P                 (CONVERT_O)
 #define CONVERT_O_R                 (CONVERT_O)
+
+#define SENSOR_STATE_MASK           (0x7FFF)
 
 /*****************************************************************************/
 
