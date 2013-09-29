@@ -106,6 +106,11 @@ __BEGIN_DECLS
 #define EVENT_TYPE_ROTVEC_Z         ABS_TOOL_WIDTH
 #define EVENT_TYPE_ROTVEC_W			ABS_VOLUME
 
+/* conversion of acceleration data to SI units (m/s^2) */
+/* 720 LSB = 1G */
+#define AKSC_LSG					(720.0f)
+
+/* conversion of rotation vector (Q14) data to float */
 #define CONVERT_RV					CONVERT_Q14
 
 #define SENSOR_STATE_MASK           (0x7FFF)
