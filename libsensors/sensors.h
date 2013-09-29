@@ -54,12 +54,13 @@ __BEGIN_DECLS
 #define EVENT_TYPE_ACCEL_X          REL_X
 #define EVENT_TYPE_ACCEL_Y          REL_Y
 #define EVENT_TYPE_ACCEL_Z          REL_Z
-#define EVENT_TYPE_ACCEL_STATUS     ABS_RX
+//#define EVENT_TYPE_ACCEL_STATUS     ABS_RX
 
 /* Fusion Orientaion */
 #define EVENT_TYPE_YAW              REL_X
 #define EVENT_TYPE_PITCH            REL_Y
 #define EVENT_TYPE_ROLL             REL_Z
+#define EVENT_TYPE_ORIENT_STATUS    ABS_WHEEL //8 
 
 /* Fusion Rotation Vector */
 #define EVENT_TYPE_ROTVEC_X         ABS_TILT_X
