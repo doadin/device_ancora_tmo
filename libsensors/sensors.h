@@ -100,6 +100,12 @@ __BEGIN_DECLS
 #define CONVERT_O_P                 (CONVERT_O)
 #define CONVERT_O_R                 (CONVERT_O)
 
+/* Fusion Rotation Vector */
+#define EVENT_TYPE_ROTVEC_X         ABS_TILT_X
+#define EVENT_TYPE_ROTVEC_Y         ABS_TILT_Y
+#define EVENT_TYPE_ROTVEC_Z         ABS_TOOL_WIDTH
+#define EVENT_TYPE_ROTVEC_W			ABS_VOLUME
+
 #define SENSOR_STATE_MASK           (0x7FFF)
 
 /*****************************************************************************/
