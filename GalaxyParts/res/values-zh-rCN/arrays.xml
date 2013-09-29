@@ -14,12 +14,5 @@
      limitations under the License.
  -->
 <resources>
-    <string-array name="backlight_timeout_entries">
-        <item>默认 (1.6 秒)</item>
-        <item>0.5 秒</item>
-        <item>1 秒</item>
-        <item>2 秒</item>
-        <item>5 秒</item>
-        <item>极速关闭</item>
-    </string-array>
+
 </resources>

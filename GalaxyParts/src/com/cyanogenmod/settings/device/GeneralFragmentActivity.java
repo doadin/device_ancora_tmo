@@ -38,7 +38,6 @@ public class GeneralFragmentActivity extends PreferenceFragment {
  
     private Preference mGSensor;
     private CheckBoxPreference mFastCharge;
-    private VibrationPreference mVibration;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -55,12 +54,9 @@ public class GeneralFragmentActivity extends PreferenceFragment {
         mFastCharge.setEnabled(FastCharge.isSupported());
         mFastCharge.setOnPreferenceChangeListener(new FastCharge());
 
-        mVibration = (VibrationPreference) findPreference(DeviceSettings.KEY_VIBRATION);
-        mVibration.setEnabled(VibrationPreference.isSupported());
     }
 
     public static void restore(Context context) {
         FastCharge.restore(context);
-        VibrationPreference.restore(context);
     }
 }

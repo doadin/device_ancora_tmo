@@ -32,41 +32,35 @@ import android.widget.Toast;
 
 import com.cyanogenmod.settings.device.R;
 
-public class TouchKeyFragmentActivity extends PreferenceFragment {
+public class GeneralFragmentActivity extends PreferenceFragment {
 
-    private static final String TAG = "DeviceSettings_TouchKey";
-
-	private ListPreference mBacklightTimeout;
-    private CheckBoxPreference mTouchLightStatus;
-    private Preference mBacklight;
-    private Preference mPkfManager;
+    private static final String TAG = "DeviceSettings_General";
+ 
+    private Preference mGSensor;
+    private CheckBoxPreference mFastCharge;
+    private VibrationPreference mVibration;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        addPreferencesFromResource(R.xml.touchkey_preferences);
+        addPreferencesFromResource(R.xml.general_preferences);
 
         PreferenceScreen prefSet = getPreferenceScreen();
-        Context mContext = getActivity();
-        
-        mBacklightTimeout = (ListPreference) findPreference(DeviceSettings.KEY_BACKLIGHT_TIMEOUT);
-        mBacklightTimeout.setEnabled(TouchKeyBacklightTimeout.isSupported());
-        mBacklightTimeout.setOnPreferenceChangeListener(new TouchKeyBacklightTimeout());
 
-        mTouchLightStatus = (CheckBoxPreference) findPreference(DeviceSettings.KEY_TOUCHLIGHT_STATUS);
-        mTouchLightStatus.setEnabled(TouchLightStatus.isSupported());
-        mTouchLightStatus.setOnPreferenceChangeListener(new TouchLightStatus());
+        mGSensor = (Preference) findPreference(DeviceSettings.KEY_GSENSOR);
+        mGSensor.setEnabled(GSensor.isSupported());
 
-        mBacklight = (Preference) findPreference(DeviceSettings.KEY_BACKLIGHT);
-        mBacklight.setOnPreferenceClickListener(new TouchKeyBacklight(mContext));
+        mFastCharge = (CheckBoxPreference) findPreference(DeviceSettings.KEY_FAST_CHARGE);
+        mFastCharge.setEnabled(FastCharge.isSupported());
+        mFastCharge.setOnPreferenceChangeListener(new FastCharge());
 
-        mPkfManager = (Preference) findPreference(DeviceSettings.KEY_PKFMANAGER);
-        mPkfManager.setOnPreferenceClickListener(new PkfManager(mContext));
+        mVibration = (VibrationPreference) findPreference(DeviceSettings.KEY_VIBRATION);
+        mVibration.setEnabled(VibrationPreference.isSupported());
     }
 
     public static void restore(Context context) {
-        TouchKeyBacklightTimeout.restore(context);
-        TouchLightStatus.restore(context);
+        FastCharge.restore(context);
+        VibrationPreference.restore(context);
     }
 }

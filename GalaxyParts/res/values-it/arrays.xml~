@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!-- Copyright (C) 2013 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,7 +13,13 @@
      See the License for the specific language governing permissions and
      limitations under the License.
  -->
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-
-   
-</PreferenceScreen>
+<resources>
+    <string-array name="backlight_timeout_entries">
+        <item>Default (1.6 secondi)</item>
+        <item>0.5 secondi</item>
+        <item>1 secondo</item>
+        <item>2 secondi</item>
+        <item>5 secondi</item>
+        <item>Mai</item>
+    </string-array>
+</resources>

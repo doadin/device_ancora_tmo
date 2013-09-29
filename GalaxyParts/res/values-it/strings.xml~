@@ -18,6 +18,7 @@
 
     <!-- Page Headers -->
     <string name="tab_general_title">VARIE</string>
+    <string name="tab_touchkey_title">TOUCHKEY</string>
 
     <!-- Page General -->
     <string name="category_screen_title">Display</string>
@@ -34,7 +35,24 @@
     <string name="force_fast_charge_head">Forza caricamento rapido</string>
     <string name="force_fast_charge_summary_head">Rileva i PC connessi alla porta USB come semplici caricatori USB, per un più rapido caricamento della batteria</string>
 
+    <string name="category_vibration_title">Vibrazione</string>
+    <string name="vibration_title_head">Vibrazione</string>
+    <string name="vibration_summary_head">Controllo intensità vibrazione</string>
+    <string name="vibration_title">Intensità vibrazione</string>
+    <string name="vibration_test_title">Prova</string>
 
     <string name="button_reset_title">Ripristina</string>
 
+    <!-- Page TouchKey -->
+    <string name="category_touchkey_title">Tasti a sfioramento</string>
+    <string name="backlight_timeout_title_head">Timer retroilluminazione</string>
+    <string name="backlight_timeout_summary_head">Imposta l\'intervallo dopo cui la retroilluminazione dei tasti si spegne</string>
+    <string name="touchlight_status_title_head">Retroilluminazione pressioni touchscreen</string>
+    <string name="touchlight_status_summary_head">Attiva/disattiva la retroilluminazione dei touchkey in caso di pressioni del touchscreen</string>
+    <string name="backlight_title_head">Impostazioni notifiche</string>
+    <string name="backlight_summary_head">Impostazioni retroilluminazione in caso di notifiche (applicazione esterna)</string>
+
+    <string name="category_pkfmanager_title">Pressioni fantasma</string>
+    <string name="pkfmanager_title_head">Filtro delle pressioni fantasma</string>
+    <string name="pkfmanager_summary_head">Filtra le pressioni dei tasti causate dall\'interferenza dell\'antenna (applicazione esterna)</string>
 </resources>
