@@ -106,6 +106,8 @@ __BEGIN_DECLS
 #define EVENT_TYPE_ROTVEC_Z         ABS_TOOL_WIDTH
 #define EVENT_TYPE_ROTVEC_W			ABS_VOLUME
 
+#define CONVERT_RV					CONVERT_Q14
+
 #define SENSOR_STATE_MASK           (0x7FFF)
 
 /*****************************************************************************/
