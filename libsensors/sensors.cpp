@@ -140,7 +140,7 @@ private:
             case ID_A:
                 return bosch;
             case ID_M:
-                return yamaha;
+                return akm;
             case ID_O:
                 return orientation;
             case ID_P:
