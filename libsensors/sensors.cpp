@@ -59,8 +59,8 @@ static const struct sensor_t sSensorList[] = {
           "Bosch",
           1, SENSORS_ACCELERATION_HANDLE,
           SENSOR_TYPE_ACCELEROMETER, RANGE_A, RESOLUTION_A, 0.2f, 10000, { } },
-        { "MS-3C Magnetic Sensor",
-          "Yamaha",
+        { "AK8975 3-axis Magnetic field sensor",
+          "Asahi Kasei Microdevices",
           1, SENSORS_MAGNETIC_FIELD_HANDLE,
           SENSOR_TYPE_MAGNETIC_FIELD, RANGE_M, RESOLUTION_M, 4.0f, 10000, { } },
         { "MS-3C Orientation Sensor",
@@ -113,10 +113,10 @@ struct sensors_poll_context_t {
 
 private:
     enum {
-        proximity       = 1,
-        bosch           = 2,
-        yamaha          = 3,
-        orientation     = 4,
+        proximity       = 0,
+        bosch           = 1,
+        akm             = 2,
+        orientation     = 3,
         numSensorDrivers,
         numFds,
     };
