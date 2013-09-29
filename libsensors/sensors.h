@@ -113,6 +113,9 @@ __BEGIN_DECLS
 #define AKSC_LSG					(720.0f)
 #define CONVERT_A					CONVERT_AKM_G
 
+/* conversion of magnetic data to uT units */
+#define CONVERT_M					(0.06f)
+
 /* conversion of rotation vector (Q14) data to float */
 #define CONVERT_RV					CONVERT_Q14
 

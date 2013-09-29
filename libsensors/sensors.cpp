@@ -59,10 +59,16 @@ static const struct sensor_t sSensorList[] = {
           "Bosch",
           1, SENSORS_ACCELERATION_HANDLE,
           SENSOR_TYPE_ACCELEROMETER, RANGE_A, RESOLUTION_A, 0.2f, 10000, { } },
-        { "AK8975 3-axis Magnetic field sensor",
-          "Asahi Kasei Microdevices",
-          1, SENSORS_MAGNETIC_FIELD_HANDLE,
-          SENSOR_TYPE_MAGNETIC_FIELD, RANGE_M, RESOLUTION_M, 4.0f, 10000, { } },
+	    { "AK8975 3-axis Magnetic field sensor",
+		    "Asahi Kasei Microdevices",
+		    1,  
+		    SENSORS_MAGNETIC_FIELD_HANDLE,
+		    SENSOR_TYPE_MAGNETIC_FIELD,
+		    1228.8f,
+		    CONVERT_M,
+		    0.35f,
+		    10000,
+		    { } },
         { "MS-3C Orientation Sensor",
           "Yamaha",
           1, SENSORS_ORIENTATION_HANDLE,
@@ -165,10 +171,10 @@ sensors_poll_context_t::sensors_poll_context_t()
     mPollFds[bosch].events = POLLIN;
     mPollFds[bosch].revents = 0;
 
-    mSensors[yamaha] = new CompassSensor();
-    mPollFds[yamaha].fd = mSensors[yamaha]->getFd();
-    mPollFds[yamaha].events = POLLIN;
-    mPollFds[yamaha].revents = 0;
+	mSensors[akm] = new AkmSensor();
+	mPollFds[akm].fd = mSensors[akm]->getFd();
+	mPollFds[akm].events = POLLIN;
+	mPollFds[akm].revents = 0;
 
     mSensors[orientation] = new OrientationSensor();
     mPollFds[orientation].fd = mSensors[orientation]->getFd();
