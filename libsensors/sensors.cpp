@@ -168,10 +168,10 @@ sensors_poll_context_t::sensors_poll_context_t()
     mPollFds[bosch].events = POLLIN;
     mPollFds[bosch].revents = 0;
 
-	mSensors[akm] = new AkmSensor();
-	mPollFds[akm].fd = mSensors[akm]->getFd();
-	mPollFds[akm].events = POLLIN;
-	mPollFds[akm].revents = 0;
+    mSensors[akm] = new AkmSensor();
+    mPollFds[akm].fd = mSensors[akm]->getFd();
+    mPollFds[akm].events = POLLIN;
+    mPollFds[akm].revents = 0;
 
     mSensors[orientation] = new OrientationSensor();
     mPollFds[orientation].fd = mSensors[orientation]->getFd();
