@@ -108,6 +108,10 @@ __BEGIN_DECLS
 
 #define CONVERT_AKM_G				(GRAVITY_EARTH / 720.0f)
 
+#define CONVERT_Q14					(1.0f / 16384.0f)
+#define CONVERT_Q16					(1.0f / 65536.0f)
+#define CONVERT_AKM_G				(GRAVITY_EARTH / 720.0f)
+
 /* conversion of acceleration data to SI units (m/s^2) */
 /* 720 LSB = 1G */
 #define AKSC_LSG					(720.0f)
@@ -116,6 +120,8 @@ __BEGIN_DECLS
 /* conversion of magnetic data to uT units */
 #define CONVERT_M					(0.06f)
 
+/* conversion of orientation data (Q6) to degree units */
+#define CONVERT_OR					(1.0f / 64.0f)
 /* conversion of rotation vector (Q14) data to float */
 #define CONVERT_RV					CONVERT_Q14
 

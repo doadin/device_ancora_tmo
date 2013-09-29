@@ -77,6 +77,27 @@ static const struct sensor_t sSensorList[] = {
           "Sharp",
           1, SENSORS_PROXIMITY_HANDLE,
           SENSOR_TYPE_PROXIMITY, 5.0f, 5.0f, 0.75f, 0, { } },
+		{ "AKM Orientation sensor",
+		  "Asahi Kasei Microdevices",
+		  1,
+		  SENSORS_ORIENTATION_HANDLE,
+		  SENSOR_TYPE_ORIENTATION,
+		  360.0f,
+		  CONVERT_OR,
+		  1.0f,
+		  10000,
+		  { } },
+	    { "AKM Rotation vector sensor",
+		  "Asahi Kasei Microdevices",
+		  1,
+		  SENSORS_ROTATION_VECTOR_HANDLE,
+		  SENSOR_TYPE_ROTATION_VECTOR,
+		  34.907f,
+		  CONVERT_RV,
+		  1.0f,
+		  10000,
+		  { } }
+};
 };
 
 
@@ -151,6 +172,9 @@ private:
                 return orientation;
             case ID_P:
                 return proximity;
+			case ID_OR:
+		    case ID_RV:
+			        return akm;
                  
         }
         return -EINVAL;
