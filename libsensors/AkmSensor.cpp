@@ -32,7 +32,7 @@
 #define AKM_SYSFS_PATH	"/sys/class/compass/akm8963/"
 
 #elif defined(HAL_FOR_AK8975)
-#define AKM_SYSFS_PATH	"/sys/class/compass/akm8975/"
+#define AKM_SYSFS_PATH	"/sys/devices/virtual/input/input7"
 
 #elif defined(HAL_FOR_AK09911)
 #define AKM_SYSFS_PATH	"/sys/class/compass/akm09911/"
@@ -44,7 +44,7 @@
 /*****************************************************************************/
 
 AkmSensor::AkmSensor()
-	: SensorBase(NULL, "compass"),
+	: SensorBase(NULL, "compass_sensor"),
 	mPendingMask(0),
 	mInputReader(32)
 {
