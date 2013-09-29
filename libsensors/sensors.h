@@ -106,9 +106,12 @@ __BEGIN_DECLS
 #define EVENT_TYPE_ROTVEC_Z         ABS_TOOL_WIDTH
 #define EVENT_TYPE_ROTVEC_W			ABS_VOLUME
 
+#define CONVERT_AKM_G				(GRAVITY_EARTH / 720.0f)
+
 /* conversion of acceleration data to SI units (m/s^2) */
 /* 720 LSB = 1G */
 #define AKSC_LSG					(720.0f)
+#define CONVERT_A					CONVERT_AKM_G
 
 /* conversion of rotation vector (Q14) data to float */
 #define CONVERT_RV					CONVERT_Q14
