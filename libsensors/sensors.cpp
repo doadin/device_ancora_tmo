@@ -35,7 +35,7 @@
 
 #include "ProximitySensor.h"
 #include "Bma222Sensor.h"
-#include "CompassSensor.h"
+#include "AkmSensor.h"
 #include "OrientationSensor.h"
 
 /*****************************************************************************/
