@@ -145,9 +145,8 @@ private:
                 return orientation;
             case ID_P:
                 return proximity;
-			case ID_OR:
-		    case ID_RV:
-			        return akm;
+	    case ID_OR:
+	        return akm;
                  
         }
         return -EINVAL;
