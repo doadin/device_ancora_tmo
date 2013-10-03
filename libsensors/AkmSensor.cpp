@@ -87,25 +87,25 @@ AkmSensor::AkmSensor()
     if (akm_is_sensor_enabled(SENSOR_TYPE_ACCELEROMETER))  {
         mEnabled |= 1<<Accelerometer;
         if (!ioctl(data_fd, EVIOCGABS(EVENT_TYPE_ACCEL_X), &absinfo)) {
-            mPendingEvents[Accelerometer].acceleration.x = absinfo.value * CONVERT_A_X;
+            mPendingEvents[Accelerometer].acceleration.x = absinfo.value * AK8975_CONVERT_A_X;
         }
         if (!ioctl(data_fd, EVIOCGABS(EVENT_TYPE_ACCEL_Y), &absinfo)) {
-            mPendingEvents[Accelerometer].acceleration.y = absinfo.value * CONVERT_A_Y;
+            mPendingEvents[Accelerometer].acceleration.y = absinfo.value * AK8975_CONVERT_A_Y;
         }
         if (!ioctl(data_fd, EVIOCGABS(EVENT_TYPE_ACCEL_Z), &absinfo)) {
-            mPendingEvents[Accelerometer].acceleration.z = absinfo.value * CONVERT_A_Z;
+            mPendingEvents[Accelerometer].acceleration.z = absinfo.value * AK8975_CONVERT_A_Z;
         }
     }
     if (akm_is_sensor_enabled(SENSOR_TYPE_MAGNETIC_FIELD))  {
         mEnabled |= 1<<MagneticField;
         if (!ioctl(data_fd, EVIOCGABS(EVENT_TYPE_MAGV_X), &absinfo)) {
-            mPendingEvents[MagneticField].magnetic.x = absinfo.value * CONVERT_M_X;
+            mPendingEvents[MagneticField].magnetic.x = absinfo.value * AK8975_CONVERT_M_X;
         }
         if (!ioctl(data_fd, EVIOCGABS(EVENT_TYPE_MAGV_Y), &absinfo)) {
-            mPendingEvents[MagneticField].magnetic.y = absinfo.value * CONVERT_M_Y;
+            mPendingEvents[MagneticField].magnetic.y = absinfo.value * AK8975_CONVERT_M_Y;
         }
         if (!ioctl(data_fd, EVIOCGABS(EVENT_TYPE_MAGV_Z), &absinfo)) {
-            mPendingEvents[MagneticField].magnetic.z = absinfo.value * CONVERT_M_Z;
+            mPendingEvents[MagneticField].magnetic.z = absinfo.value * AK8975_CONVERT_M_Z;
         }
     }
     if (akm_is_sensor_enabled(SENSOR_TYPE_ORIENTATION))  {
@@ -281,44 +281,44 @@ void AkmSensor::processEvent(int code, int value)
     switch (code) {
         case EVENT_TYPE_ACCEL_X:
             mPendingMask |= 1<<Accelerometer;
-            mPendingEvents[Accelerometer].acceleration.x = value * CONVERT_A_X;
+            mPendingEvents[Accelerometer].acceleration.x = value * AK8975_CONVERT_A_X;
             break;
         case EVENT_TYPE_ACCEL_Y:
             mPendingMask |= 1<<Accelerometer;
-            mPendingEvents[Accelerometer].acceleration.y = value * CONVERT_A_Y;
+            mPendingEvents[Accelerometer].acceleration.y = value * AK8975_CONVERT_A_Y;
             break;
         case EVENT_TYPE_ACCEL_Z:
             mPendingMask |= 1<<Accelerometer;
-            mPendingEvents[Accelerometer].acceleration.z = value * CONVERT_A_Z;
+            mPendingEvents[Accelerometer].acceleration.z = value * AK8975_CONVERT_A_Z;
             break;
 
         case EVENT_TYPE_MAGV_X:
             ALOGV("AkmSensor: EVENT_TYPE_MAGV_X value =%d", value);
             mPendingMask |= 1<<MagneticField;
-            mPendingEvents[MagneticField].magnetic.x = value * CONVERT_M_X;
+            mPendingEvents[MagneticField].magnetic.x = value * AK8975_CONVERT_M_X;
             break;
         case EVENT_TYPE_MAGV_Y:
             ALOGV("AkmSensor: EVENT_TYPE_MAGV_Y value =%d", value);
             mPendingMask |= 1<<MagneticField;
-            mPendingEvents[MagneticField].magnetic.y = value * CONVERT_M_Y;
+            mPendingEvents[MagneticField].magnetic.y = value * AK8975_CONVERT_M_Y;
             break;
         case EVENT_TYPE_MAGV_Z:
             ALOGV("AkmSensor: EVENT_TYPE_MAGV_Z value =%d", value);
             mPendingMask |= 1<<MagneticField;
-            mPendingEvents[MagneticField].magnetic.z = value * CONVERT_M_Z;
+            mPendingEvents[MagneticField].magnetic.z = value * AK8975_CONVERT_M_Z;
             break;
 
         case EVENT_TYPE_YAW:
             mPendingMask |= 1<<Orientation;
-            mPendingEvents[Orientation].orientation.azimuth = value * CONVERT_O_A;
+            mPendingEvents[Orientation].orientation.azimuth = value * AK8975_CONVERT_O_A;
             break;
         case EVENT_TYPE_PITCH:
             mPendingMask |= 1<<Orientation;
-            mPendingEvents[Orientation].orientation.pitch = value * CONVERT_O_P;
+            mPendingEvents[Orientation].orientation.pitch = value * AK8975_CONVERT_O_P;
             break;
         case EVENT_TYPE_ROLL:
             mPendingMask |= 1<<Orientation;
-            mPendingEvents[Orientation].orientation.roll = value * CONVERT_O_R;
+            mPendingEvents[Orientation].orientation.roll = value * AK8975_CONVERT_O_R;
             break;
         case EVENT_TYPE_ORIENT_STATUS:
             uint8_t status = uint8_t(value & SENSOR_STATE_MASK);
