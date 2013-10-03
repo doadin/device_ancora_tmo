@@ -63,10 +63,10 @@ static const struct sensor_t sSensorList[] = {
 	  "Asahi Kasei Microdevices",	74
           1, SENSORS_MAGNETIC_FIELD_HANDLE,	75
           SENSOR_TYPE_MAGNETIC_FIELD, 2000.0f, CONVERT_M, 6.8f, 16667, { } },
-        { "MS-3C Orientation Sensor",
-          "Yamaha",
+        { "AK8975 Orientation sensor",
+          "Asahi Kasei Microdevices",
           1, SENSORS_ORIENTATION_HANDLE,
-          SENSOR_TYPE_ORIENTATION, RANGE_O, RESOLUTION_O, 4.2f, 10000, { } },
+          SENSOR_TYPE_ORIENTATION, CONVERT_O, RESOLUTION_O, 7.8f, 200000, { } },
         { "GP2A Proximity sensor",
           "Sharp",
           1, SENSORS_PROXIMITY_HANDLE,
