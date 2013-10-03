@@ -62,12 +62,6 @@ __BEGIN_DECLS
 #define EVENT_TYPE_ROLL             REL_Z
 #define EVENT_TYPE_ORIENT_STATUS    ABS_WHEEL //8 
 
-/* Fusion Rotation Vector */
-#define EVENT_TYPE_ROTVEC_X         ABS_TILT_X
-#define EVENT_TYPE_ROTVEC_Y         ABS_TILT_Y
-#define EVENT_TYPE_ROTVEC_Z         ABS_TOOL_WIDTH
-#define EVENT_TYPE_ROTVEC_W			ABS_VOLUME
-
 /* For Magnetometer */
 #define EVENT_TYPE_MAGV_X           ABS_RY
 #define EVENT_TYPE_MAGV_Y           ABS_RZ
@@ -101,30 +95,41 @@ __BEGIN_DECLS
 #define CONVERT_O_P                 (CONVERT_O)
 #define CONVERT_O_R                 (CONVERT_O)
 
-/* Fusion Rotation Vector */
-#define EVENT_TYPE_ROTVEC_X         ABS_TILT_X
-#define EVENT_TYPE_ROTVEC_Y         ABS_TILT_Y
-#define EVENT_TYPE_ROTVEC_Z         ABS_TOOL_WIDTH
-#define EVENT_TYPE_ROTVEC_W			ABS_VOLUME
-
-#define CONVERT_AKM_G				(GRAVITY_EARTH / 720.0f)
-
 #define CONVERT_Q14					(1.0f / 16384.0f)
 #define CONVERT_Q16					(1.0f / 65536.0f)
 #define CONVERT_AKM_G				(GRAVITY_EARTH / 720.0f)
 
+// factory ak8975
+#define AK8975_DEFAULT_DELAY               (200 * 1000000)
+
+#define AK8975_LSG                         (1000.0f)
+#define AK8975_CONVERT_A                   (GRAVITY_EARTH / AK8975_LSG)
+#define AK8975_CONVERT_A_X                 (-AK8975_CONVERT_A)
+#define AK8975_CONVERT_A_Y                 (AK8975_CONVERT_A)
+#define AK8975_CONVERT_A_Z                 (-AK8975_CONVERT_A)
+
+#define AK8975_CONVERT_M                   (1.0f/16.0f)
+#define AK8975_CONVERT_M_X                 (AK8975_CONVERT_M)
+#define AK8975_CONVERT_M_Y                 (-AK8975_CONVERT_M)
+#define AK8975_CONVERT_M_Z                 (-AK8975_CONVERT_M)
+
+#define AK8975_CONVERT_O                   (1.0f/64.0f)
+#define AK8975_CONVERT_O_A                 (AK8975_CONVERT_O)
+#define AK8975_CONVERT_O_P                 (AK8975_CONVERT_O)
+#define AK8975_CONVERT_O_R                 (-AK8975_CONVERT_O)
+
 /* conversion of acceleration data to SI units (m/s^2) */
 /* 720 LSB = 1G */
 #define AKSC_LSG					(720.0f)
-#define CONVERT_A					CONVERT_AKM_G
+//#define CONVERT_A					CONVERT_AKM_G
 
 /* conversion of magnetic data to uT units */
-#define CONVERT_M					(0.06f)
+//#define CONVERT_M					(0.06f)
 
 /* conversion of orientation data (Q6) to degree units */
 #define CONVERT_OR					(1.0f / 64.0f)
 /* conversion of rotation vector (Q14) data to float */
-#define CONVERT_RV					CONVERT_Q14
+//#define CONVERT_RV					CONVERT_Q14
 
 #define SENSOR_STATE_MASK           (0x7FFF)
 
