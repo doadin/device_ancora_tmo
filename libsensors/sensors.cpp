@@ -59,9 +59,9 @@ static const struct sensor_t sSensorList[] = {
           "Bosch",
           1, SENSORS_ACCELERATION_HANDLE,
           SENSOR_TYPE_ACCELEROMETER, RANGE_A, RESOLUTION_A, 0.2f, 10000, { } },
-	{ "AK8975 3-axis Magnetic field sensor",	73
-	  "Asahi Kasei Microdevices",	74
-          1, SENSORS_MAGNETIC_FIELD_HANDLE,	75
+	{ "AK8975 Magnetic field Sensor",
+	  "Asahi Kasei Microdevices",
+          1, SENSORS_MAGNETIC_FIELD_HANDLE,
           SENSOR_TYPE_MAGNETIC_FIELD, 2000.0f, CONVERT_M, 6.8f, 16667, { } },
         { "AK8975 Orientation sensor",
           "Asahi Kasei Microdevices",
