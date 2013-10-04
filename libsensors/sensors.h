@@ -57,16 +57,16 @@ __BEGIN_DECLS
 //#define EVENT_TYPE_ACCEL_STATUS     ABS_RX
 
 /* Fusion Orientaion */
-#define EVENT_TYPE_YAW              REL_X
-#define EVENT_TYPE_PITCH            REL_Y
-#define EVENT_TYPE_ROLL             REL_Z
+#define EVENT_TYPE_YAW              ABS_RX
+#define EVENT_TYPE_PITCH            ABS_RY
+#define EVENT_TYPE_ROLL             ABS_RZ 
 #define EVENT_TYPE_ORIENT_STATUS    ABS_WHEEL //8 
 
 /* For Magnetometer */
-#define EVENT_TYPE_MAGV_X           ABS_RY
-#define EVENT_TYPE_MAGV_Y           ABS_RZ
-#define EVENT_TYPE_MAGV_Z           ABS_THROTTLE
-#define EVENT_TYPE_MAGV_STATUS      ABS_RUDDER
+
+#define EVENT_TYPE_MAGV_X           ABS_RUDDER  // 6
+#define EVENT_TYPE_MAGV_Y           ABS_THROTTLE  // 7
+#define EVENT_TYPE_MAGV_Z           ABS_GAS  // 9
 
 #define EVENT_TYPE_PROXIMITY        ABS_DISTANCE
 #define EVENT_TYPE_LIGHT            ABS_MISC
