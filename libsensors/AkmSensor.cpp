@@ -278,6 +278,10 @@ int AkmSensor::readEvents(sensors_event_t* data, int count)
 
 void AkmSensor::processEvent(int code, int value)
 {
+
+    int status;
+    double converted;
+
     switch (code) {
         case EVENT_TYPE_ACCEL_X:
             mPendingMask |= 1<<Accelerometer;
