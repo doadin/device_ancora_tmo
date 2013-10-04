@@ -142,7 +142,7 @@ private:
             case ID_M:
                 return akm;
             case ID_O:
-                return orientation;
+                return akm;
             case ID_P:
                 return proximity;
 	    case ID_OR:
