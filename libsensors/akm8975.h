@@ -22,7 +22,8 @@
 
 #define AKM8975_I2C_NAME "ak8975"
 
-#define SENSOR_DATA_SIZE	8 /* Rx buffer size, i.e from ST1 to ST2 */
+/* Rx buffer size, i.e from ST1 to ST2 */
+#define SENSOR_DATA_SIZE	8
 #define AKMIO			0xA1
 
 /* IOCTLs for AKM library */

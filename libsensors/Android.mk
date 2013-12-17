@@ -36,7 +36,13 @@ LOCAL_SRC_FILES := 				\
 			SensorBase.cpp		\
 			ProximitySensor.cpp	\
 			Bma222Sensor.cpp	\
-			AkmSensor.cpp       \
+			akm8975.c 			\
+			akmdfs/AKFS_APIs_8975/AKFS_AK8975.c \
+			akmdfs/AKFS_APIs_8975/AKFS_AOC.c \
+			akmdfs/AKFS_APIs_8975/AKFS_Device.c \
+			akmdfs/AKFS_APIs_8975/AKFS_Direction.c \
+			akmdfs/AKFS_APIs_8975/AKFS_VNorm.c \
+			akmdfs/AKFS_FileIO.c \
 			OrientationSensor.cpp	\
 			InputEventReader.cpp
 
