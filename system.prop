@@ -64,7 +64,7 @@ config.disable_atlas=true
 mm.enable.smoothstreaming=true
 
 # USB-OTG
-persist.sys.isUsbOtgEnabled=true
+persist.sys.isUsbOtgEnabled=false
 
 # OTA Updater
 ro.ota.romname=Resurrection Remix

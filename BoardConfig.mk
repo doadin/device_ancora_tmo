@@ -44,6 +44,13 @@ TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_SMP := false
 TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
 
+#Sabermod Optimizations
+RROPTI := true
+RR_O3 := true
+RR_STRICT := true
+RR_KRAIT := true
+RR_GRAPHITE := true
+
 # Use dlmalloc instead of jemalloc for mallocs on low-ram targets
 MALLOC_IMPL := dlmalloc
 
