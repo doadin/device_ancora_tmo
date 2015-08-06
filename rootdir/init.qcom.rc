@@ -175,6 +175,13 @@ on boot
     # Keydisabler
     chown system system /sys/devices/virtual/sec/qt602240_noise_test/keypad_enable
 
+    # Backlight notification
+    chown system system /sys/class/misc/backlightnotification/blink_control
+    chown system system /sys/class/misc/backlightnotification/enabled
+    chown system system /sys/class/misc/backlightnotification/led_count
+    chown system system /sys/class/misc/backlightnotification/notification_led
+    chown system system /sys/class/misc/backlightnotification/notification_led_mask
+
     # Define TCP delayed ack settings for WiFi & LTE
     setprop net.tcp.delack.default     1
     setprop net.tcp.delack.wifi        20
