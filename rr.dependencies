@@ -18,5 +18,5 @@
 	{
 		"repository": "samsung-kernel-msm7x30-common",
 		"target_path": "kernel/samsung/msm7x30-common"
-	},
+	}
 ]
