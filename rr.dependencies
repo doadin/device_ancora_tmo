@@ -14,5 +14,9 @@
 	{
 		"repository": "android_hardware_qcom_audio-caf",
 		"target_path": "hardware/qcom/audio-caf/msm7x30"
-	}
+	},
+	{
+		"repository": "samsung-kernel-msm7x30-common",
+		"target_path": "kernel/samsung/msm7x30-common"
+	},
 ]
