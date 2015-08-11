@@ -27,8 +27,6 @@ import com.cyanogenmod.settings.device.R;
 
 public class TouchKeyFragmentActivity extends PreferenceFragment {
 
-    private ListPreference mBacklightTimeout;
-    private CheckBoxPreference mTouchLightStatus;
     private Preference mPkfManager;
 
     @Override
@@ -39,20 +37,7 @@ public class TouchKeyFragmentActivity extends PreferenceFragment {
 
         Context mContext = getActivity();
 
-        mBacklightTimeout = (ListPreference) findPreference(DeviceSettings.KEY_BACKLIGHT_TIMEOUT);
-        mBacklightTimeout.setEnabled(TouchKeyBacklightTimeout.isSupported());
-        mBacklightTimeout.setOnPreferenceChangeListener(new TouchKeyBacklightTimeout());
-
-        mTouchLightStatus = (CheckBoxPreference) findPreference(DeviceSettings.KEY_TOUCHLIGHT_STATUS);
-        mTouchLightStatus.setEnabled(TouchLightStatus.isSupported());
-        mTouchLightStatus.setOnPreferenceChangeListener(new TouchLightStatus());
-
         mPkfManager = (Preference) findPreference(DeviceSettings.KEY_PKFMANAGER);
         mPkfManager.setOnPreferenceClickListener(new PkfManager(mContext));
-    }
-
-    public static void restore(Context context) {
-        TouchKeyBacklightTimeout.restore(context);
-        TouchLightStatus.restore(context);
     }
 }
