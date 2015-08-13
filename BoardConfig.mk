@@ -129,6 +129,9 @@ TARGET_PROVIDES_POWERHAL := true
 # Include an expanded selection of fonts
 EXTENDED_FONT_FOOTPRINT := true
 
+# Boot animation
+TARGET_BOOTANIMATION_HALF_RES := true
+
 # CM Hardware
 BOARD_HARDWARE_CLASS := device/samsung/ancora/cmhw
 
