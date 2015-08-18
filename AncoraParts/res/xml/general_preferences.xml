@@ -45,14 +45,4 @@
             android:defaultValue="false" />
     </PreferenceCategory>
 
-    <!-- GSensor calibration -->
-    <PreferenceCategory android:title="@string/category_screen_title" >
-        <Preference
-            android:key="gsensor"
-            android:summary="@string/g_sensor_summary"
-            android:title="@string/g_sensor_title" >
-            <intent android:action="com.cyanogenmod.settings.device.GSensor" />
-        </Preference>
-    </PreferenceCategory>
-
 </PreferenceScreen>

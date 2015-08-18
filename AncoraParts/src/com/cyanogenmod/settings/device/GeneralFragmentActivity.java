@@ -32,7 +32,6 @@ public class GeneralFragmentActivity extends PreferenceFragment {
     private CheckBoxPreference mFastCharge;
     private ListPreference mOTGCharge;
     private CheckBoxPreference mA2dpSinkStatus;
-    private Preference mGSensor;
     private FileObserver mObserver;
 
     private Handler mHandler = new Handler();
@@ -60,9 +59,6 @@ public class GeneralFragmentActivity extends PreferenceFragment {
         addPreferencesFromResource(R.xml.general_preferences);
 
         Context mContext = getActivity();
-
-        mGSensor = (Preference) findPreference(DeviceSettings.KEY_GSENSOR);
-        mGSensor.setEnabled(GSensor.isSupported());
 
         mFastCharge = (CheckBoxPreference) findPreference(DeviceSettings.KEY_FAST_CHARGE);
         mFastCharge.setEnabled(FastCharge.isSupported());

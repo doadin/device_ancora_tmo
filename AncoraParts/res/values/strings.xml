@@ -19,20 +19,9 @@
     <!-- Page Headers -->
     <string name="tab_general_title">GENERAL</string>
     <string name="tab_performance_title">PERFORMANCE</string>
-    <string name="tab_touchkey_title">TOUCHKEY</string>
-    <string name="tab_bln_title">BLN</string>
 
     <!-- Page General -->
     <string name="category_screen_title">Screen</string>
-    <string name="g_sensor_title">Horizontal calibration</string>
-    <string name="g_sensor_summary">Calibrate horizontally using accelerometer</string>
-    <string name="gsensor_ready">Place device on a level surface and tap Calibrate</string>
-    <string name="gsensor_calibrating">Calibrating. Do not move device. Please wait...</string>
-    <string name="gsensor_nofile">Unable to find offset file. Try again</string>
-    <string name="gsensor_end">Calibrated</string>
-    <string name="gsensor_button1">Complete</string>
-    <string name="gsensor_button2">Calibrate</string>
-
     <string name="category_fast_charge_title">Fast Charge Support</string>
     <string name="force_fast_charge_usbwarning">Remove the USB cable</string>
     <string name="force_fast_charge">Force Fast Charge</string>
@@ -74,27 +63,4 @@
     <string name="reboot_yes">Yes</string>
     <string name="reboot_no">No</string>
 
-    <!-- Page TouchKey -->
-    <string name="category_touchkey_title">Touch Keys</string>
-    <string name="backlight_timeout_title">Backlight Timeout</string>
-    <string name="backlight_timeout_summary">Adjust the delay before the touch key backlight automatically turns off</string>
-    <string name="touchlight_status_title">Backlight on Touchscreen Press</string>
-    <string name="touchlight_status_summary">Activation status of touchkeys backlight on touchscreen press</string>
-
-    <string name="category_pkfmanager_title">Phantom key presses</string>
-    <string name="pkfmanager_title">Phantom key presses filter</string>
-    <string name="pkfmanager_summary">Filter the unwanted key presses caused by antenna interference (external application)</string>
-
-    <!-- Page BLN -->
-    <string name="category_bln_title">Backlight Notification</string>
-    <string name="bln_type_title">Notification Type</string>
-    <string name="bln_type_summary">Set the way a notification will be reported by touchkey lights</string>
-    <string name="bln_blink_timeout_title">Blinking Lights Timeout</string>
-    <string name="bln_blink_timeout_summary">Set the duration time of blinking lights</string>
-    <string name="bln_blink_interval_on_title">Blink ON Interval</string>
-    <string name="bln_blink_interval_on_summary">Set the duration interval of each blink ON</string>
-    <string name="bln_blink_interval_off_title">Blink OFF Interval</string>
-    <string name="bln_blink_interval_off_summary">Set the duration interval of each blink OFF</string>
-    <string name="bln_static_timeout_title">Static Lights Timeout</string>
-    <string name="bln_static_timeout_summary">Set the duration time of static lights</string>
 </resources>

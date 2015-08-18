@@ -30,7 +30,6 @@ import com.cyanogenmod.settings.device.R;
 public class GeneralFragmentActivity extends PreferenceFragment {
 
     private CheckBoxPreference mFastCharge;
-    private CheckBoxPreference mFastCharge1;
     private ListPreference mOTGCharge;
     private CheckBoxPreference mA2dpSinkStatus;
     private Preference mGSensor;
@@ -62,10 +61,6 @@ public class GeneralFragmentActivity extends PreferenceFragment {
 
         Context mContext = getActivity();
 
-        mFastCharge1Status = (CheckBoxPreference) findPreference(DeviceSettings.KEY_FAST_CHARGE1);
-        mFastCharge1Status.setEnabled(FastCharge1.isSupported());
-        mFastCharge1Status.setOnPreferenceChangeListener(new FastCharge1());
-
         mGSensor = (Preference) findPreference(DeviceSettings.KEY_GSENSOR);
         mGSensor.setEnabled(GSensor.isSupported());
 
@@ -94,7 +89,6 @@ public class GeneralFragmentActivity extends PreferenceFragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         mFastCharge.setChecked(FastCharge.isActive());
-        mFastCharge1Status.setChecked(FastCharge1.getPropertyValue());
         mA2dpSinkStatus.setChecked(A2dpSink.getPropertyValue());
     }
 
