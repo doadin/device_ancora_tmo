@@ -283,7 +283,7 @@ service rmt_storage /system/bin/rmt_storage
     user root
     group system
 
-service get_macaddrs /system/bin/get_macaddrs
+service mac_addr_loader /system/bin/sh /sytem/etc/init.qcom.mac_addr.sh
     class main
     user root
     oneshot
@@ -302,7 +302,7 @@ on property:init.svc.bootanim=running
     write /sys/class/graphics/fb0/blank 0
 
 on property:init.svc.ril-daemon=running
-    start get_macaddrs
+    start mac_addr_loader
     chmod 0666 /data/.bt.info
     chmod 0666 /data/.mac.info
     chown bluetooth net_bt_stack /data/.bt.info

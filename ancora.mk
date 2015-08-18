@@ -72,7 +72,7 @@ PRODUCT_COPY_FILES += \
 
 # MAC adress tool
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilt/get_macaddrs:system/bin/get_macaddrs
+    $(LOCAL_PATH)/rootdir/system/etc/init.qcom.mac_addr.sh:system/etc/init.qcom.mac_addr.sh
 
 # Input device calibration files
 PRODUCT_COPY_FILES += \
