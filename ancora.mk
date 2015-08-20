@@ -136,8 +136,8 @@ PRODUCT_PACKAGES += \
     libjpega
 
 # Device-specific packages
-# PRODUCT_PACKAGES += \
-#     AncoraParts
+PRODUCT_PACKAGES += \
+    AncoraParts
 
 # qcmediaplayer
 PRODUCT_PACKAGES += \
