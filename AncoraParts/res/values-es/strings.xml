@@ -19,19 +19,6 @@
     <!-- Page Headers -->
     <string name="tab_general_title">GENERAL</string>
     <string name="tab_performance_title">RENDIMENTO</string>
-    <string name="tab_touchkey_title">TECLAS</string>
-    <string name="tab_bln_title">BLN</string>
-
-    <!-- Page General -->
-    <string name="category_screen_title">Pantalla</string>
-    <string name="g_sensor_title">Calibración horizontal</string>
-    <string name="g_sensor_summary">Calibrar dispositivo con el acelerómetro</string>
-    <string name="gsensor_ready">Coloca el dispositivo en una superficie plana y pulsa Calibrar</string>
-    <string name="gsensor_calibrating">Calibración en curso. No muevas el dispositivo. Espera, por favor...</string>
-    <string name="gsensor_nofile">Imposible encontrar el archivo offset. Inténtalo de nuevo</string>
-    <string name="gsensor_end">Calibración completada</string>
-    <string name="gsensor_button1">Completo</string>
-    <string name="gsensor_button2">Calibrar</string>
 
     <string name="category_fast_charge_title">Carga rápida</string>
     <string name="force_fast_charge_usbwarning">Desconecta el cable USB</string>
@@ -49,28 +36,4 @@
     <string name="reboot_wait">El dispositivo se reiniciará en %1$d segundos. Espera, por favor.</string>
     <string name="reboot_yes">Sí</string>
     <string name="reboot_no">No</string>
-
-    <!-- Page TouchKey -->
-    <string name="category_touchkey_title">Teclas táctiles</string>
-    <string name="backlight_timeout_title">Duración de retroiluminación</string>
-    <string name="backlight_timeout_summary">"Configurar la duración de la iluminacion de las teclas"</string>
-    <string name="touchlight_status_title">Retroiluminación al pulsar en la pantalla</string>
-    <string name="touchlight_status_summary">Iluminar teclas táctiles al pulsar en la pantalla</string>
-
-    <string name="category_pkfmanager_title">Pulsaciones fantasmas</string>
-    <string name="pkfmanager_title">Filtro de las pulsaciones fantasma</string>
-    <string name="pkfmanager_summary">"Filtra las pulsaciones fantasma de las teclas, causadas por la interferencia de la antena (aplicación externa)"</string>
-
-    <!-- Page BLN -->
-    <string name="category_bln_title">Notificaciones luminosas</string>
-    <string name="bln_type_title">Tipo de notificación</string>
-    <string name="bln_type_summary">Configurar notificaciones luminosas</string>
-    <string name="bln_blink_timeout_title">Duración del parpadeo</string>
-    <string name="bln_blink_timeout_summary">Configurar la duración del parpadeo</string>
-    <string name="bln_blink_interval_on_title">LED encendido</string>
-    <string name="bln_blink_interval_on_summary">Tiempo que estará el LED encendido en cada parpadeo</string>
-    <string name="bln_blink_interval_off_title">LED apagado</string>
-    <string name="bln_blink_interval_off_summary">Tiempo que estará el LED apagado en cada parpadeo</string>
-    <string name="bln_static_timeout_title">Duración de LED encendido estático</string>
-    <string name="bln_static_timeout_summary">Tiempo que estará el LED encendido estático</string>
 </resources>

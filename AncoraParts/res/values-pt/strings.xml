@@ -15,18 +15,4 @@
  -->
 <resources>
     <string name="app_name">Configurações Avançadas</string>
-
-    <string name="category_screen_title">Tela</string>
-    <string name="category_touchkey_title">Botões Touch</string>
-    <string name="backlight_timeout_title">Tempo Limite da Iluminação</string>
-    <string name="backlight_timeout_summary">Ajuste o tempo para desligar a iluminação dos Botões Touch</string>
-
-    <string name="g_sensor_title">Calibração horizontal</string>
-    <string name="g_sensor_summary">Calibrar horizontalmente utilizando o acelerómetro</string>
-    <string name="gsensor_ready">Coloque o dispositivo numa superfície de nível e toque em Calibrar</string>
-    <string name="gsensor_calibrating">A calibrar. Não desloque o dispositivo. Aguarde...</string>
-    <string name="gsensor_nofile">Impossível encontrar ficheiro de deslocamento. Tente novamente</string>
-    <string name="gsensor_end">Calibrada</string>
-    <string name="gsensor_button1">Concluída</string>
-    <string name="gsensor_button2">Calibrar</string>
 </resources>

@@ -19,19 +19,6 @@
     <!-- Page Headers -->
     <string name="tab_general_title">ÁLTALÁNOS</string>
     <string name="tab_performance_title">TELJESÍTMÉNY</string>
-    <string name="tab_touchkey_title">ÉRINTŐGOMBOK</string>
-    <string name="tab_bln_title">BLN</string>
-
-    <!-- Page General -->
-    <string name="category_screen_title">Kijelző</string>
-    <string name="g_sensor_title">Vízszintes kalibrálás</string>
-    <string name="g_sensor_summary">Vízszintes kalibrálás a gyorulásmérő használatával</string>
-    <string name="gsensor_ready">Helyezd a készüléket vízszintes felületre és érintsd meg a "Kalibrálás" gombot</string>
-    <string name="gsensor_calibrating">Kalibrálás folyamatban...Kérlek ne mozgasd a készüléket!</string>
-    <string name="gsensor_nofile">A fájl nem található. Kérlek próbáld újra</string>
-    <string name="gsensor_end">Kalibrálva</string>
-    <string name="gsensor_button1">Befejezve</string>
-    <string name="gsensor_button2">Kalibrálás</string>
 
     <string name="category_fast_charge_title">Gyors töltés engedélyezése</string>
     <string name="force_fast_charge">Gyors töltés kényszerítése</string>
@@ -48,28 +35,4 @@
     <string name="reboot_wait">A készülék %1$d másodperc múlva újraindul, kis türelem...</string>
     <string name="reboot_yes">Igen</string>
     <string name="reboot_no">Nem</string>
-
-    <!-- Page TouchKey -->
-    <string name="category_touchkey_title">Érintőgombok</string>
-    <string name="backlight_timeout_title">Érintőgombok időzítése</string>
-    <string name="backlight_timeout_summary">Állísd be, meddig tartson az érintőgombok háttérvilágítása</string>
-    <string name="touchlight_status_title">Gombnyomásra világítás</string>
-    <string name="touchlight_status_summary">A háttérvilágítás ki/bekapcsolásának beállítása</string>
-
-    <string name="category_pkfmanager_title">Véletlenszerű gomblenyomás-érzékelés</string>
-    <string name="pkfmanager_title">Véletlenszerű gomblenyomások</string>
-    <string name="pkfmanager_summary">Külső alkalmazás segítségével szűrje az antenna-interferencia okozta gombnyomásokat</string>
-
-    <!-- Page BLN -->
-    <string name="category_bln_title">Háttérvilágításos értesítések</string>
-    <string name="bln_type_title">Értesítés formája</string>
-    <string name="bln_type_summary">Állítsd be, értesítés esetén hogyan világítsanak az érintőgombok</string>
-    <string name="bln_blink_timeout_title">Villogó gombok időtartama</string>
-    <string name="bln_blink_timeout_summary">Állítsd be meddig villogjon a háttérvilágítás</string>
-    <string name="bln_blink_interval_on_title">Felvillanás időtartama</string>
-    <string name="bln_blink_interval_on_summary">Állítsd be meddig tartson egy felvillanás</string>
-    <string name="bln_blink_interval_off_title">Szünet időtartama</string>
-    <string name="bln_blink_interval_off_summary">Állítsd be mekkora legyen a szünet két villanás közt</string>
-    <string name="bln_static_timeout_title">Folytonos világítás időtartama</string>
-    <string name="bln_static_timeout_summary">Állítsd be meddig tartson a folytonos világítás</string>
 </resources>

@@ -14,12 +14,4 @@
      limitations under the License.
  -->
 <resources>
-    <string-array name="backlight_timeout_entries">
-        <item>Стандардно (1.6 секунди)</item>
-        <item>0.5 секунди</item>
-        <item>1 секунда</item>
-        <item>2 секунде</item>
-        <item>5 секунди</item>
-        <item>Никад</item>
-    </string-array>
 </resources>

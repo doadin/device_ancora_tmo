@@ -14,12 +14,4 @@
      limitations under the License.
  -->
 <resources>
-    <string-array name="backlight_timeout_entries">
-        <item>Implicit(1.6 secunde)</item>
-        <item>0.5 secunde</item>
-        <item>1 secunde</item>
-        <item>2 secunde</item>
-        <item>5 secunde</item>
-        <item>Niciodata</item>
-    </string-array>
 </resources>
