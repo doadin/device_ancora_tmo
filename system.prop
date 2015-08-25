@@ -68,8 +68,3 @@ mm.enable.smoothstreaming=true
 
 # USB-OTG
 persist.sys.isUsbOtgEnabled=false
-
-# OTA Updater
-ro.ota.romname=Resurrection Remix
-ro.ota.version=552
-ro.ota.manifest=https://romhut.com/roms/resurrection-remix-133/ota.xml
