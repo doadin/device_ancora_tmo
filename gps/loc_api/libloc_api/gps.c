@@ -41,7 +41,7 @@ const GpsInterface* gps__get_gps_interface(struct gps_device_t* dev)
 static int open_gps(const struct hw_module_t* module, char const* name,
         struct hw_device_t** device)
 {
-    struct gps_device_t *dev = malloc(sizeof(struct gps_device_t));
+    struct gps_device_t* dev = malloc(sizeof(struct gps_device_t));
 
     if(dev == NULL)
         return -1;
