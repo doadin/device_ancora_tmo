@@ -65,3 +65,6 @@ mm.enable.smoothstreaming=true
 
 # USB-OTG
 persist.sys.isUsbOtgEnabled=false
+
+# I/O scheduler
+sys.io.scheduler=cfq
