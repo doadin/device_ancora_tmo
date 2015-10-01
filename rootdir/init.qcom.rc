@@ -230,6 +230,9 @@ on boot
     # overhead in the kernel. Turn it off.
     write /sys/block/mmcblk0/queue/add_random 0
 
+    # Permissions for led device
+    chmod 0666 /dev/ledflash
+
     # Read only 1 page at a time
     write /proc/sys/vm/page-cluster 0
     
