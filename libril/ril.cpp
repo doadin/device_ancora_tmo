@@ -118,6 +118,9 @@ namespace android {
     #define appendPrintBuf(x...)
 #endif
 
+#define MAX_RIL_SOL     RIL_REQUEST_SET_UNSOL_CELL_INFO_LIST_RATE
+#define MAX_RIL_UNSOL   RIL_UNSOL_CELL_INFO_LIST
+
 enum WakeType {DONT_WAKE, WAKE_PARTIAL};
 
 typedef struct {
@@ -410,6 +413,7 @@ void   nullParcelReleaseFunction (const uint8_t* data, size_t dataSize,
 static void
 issueLocalRequest(int request, void *data, int len, RIL_SOCKET_ID socket_id) {
     RequestInfo *pRI;
+    int index;
     int ret;
     /* Hook for current context */
     /* pendingRequestsMutextHook refer to &s_pendingRequestsMutex */
@@ -428,7 +432,16 @@ issueLocalRequest(int request, void *data, int len, RIL_SOCKET_ID socket_id) {
 
     pRI->local = 1;
     pRI->token = 0xffffffff;        // token is not used in this context
-    pRI->pCI = &(s_commands[request]);
+
+    /* Hack to include Samsung requests */
+    if (request > 10000) {
+        index = request - 10000 + MAX_RIL_SOL;
+        RLOGD("SAMSUNG: request=%d, index=%d", request, index);
+        pRI->pCI = &(s_commands[index]);
+    } else {
+        pRI->pCI = &(s_commands[request]);
+    }
+
     pRI->socket_id = socket_id;
 
     ret = pthread_mutex_lock(pendingRequestsMutexHook);
@@ -454,6 +467,7 @@ processCommandBuffer(void *buffer, size_t buflen, RIL_SOCKET_ID socket_id) {
     int32_t request;
     int32_t token;
     RequestInfo *pRI;
+    int index;
     int ret;
     /* Hook for current context */
     /* pendingRequestsMutextHook refer to &s_pendingRequestsMutex */
@@ -493,15 +507,12 @@ processCommandBuffer(void *buffer, size_t buflen, RIL_SOCKET_ID socket_id) {
         return 0;
     }
 
-    if (request < 1 || request >= (int32_t)NUM_ELEMS(s_commands)) {
-        Parcel pErr;
+    /* Hack to include Samsung requests */
+    if (request < 1 || ((request > MAX_RIL_SOL) &&
+            (request < RIL_REQUEST_GET_CELL_BROADCAST_CONFIG)) ||
+            request > RIL_REQUEST_HANGUP_VT) {
         RLOGE("unsupported request code %d token %d", request, token);
         // FIXME this should perhaps return a response
-        pErr.writeInt32 (RESPONSE_SOLICITED);
-        pErr.writeInt32 (token);
-        pErr.writeInt32 (RIL_E_GENERIC_FAILURE);
-
-        sendResponse(pErr, socket_id);
         return 0;
     }
 
@@ -509,6 +520,17 @@ processCommandBuffer(void *buffer, size_t buflen, RIL_SOCKET_ID socket_id) {
     pRI = (RequestInfo *)calloc(1, sizeof(RequestInfo));
 
     pRI->token = token;
+
+    /* Hack to include Samsung requests */
+    if (request > 10000) {
+        index = request - 10000 + MAX_RIL_SOL;
+        RLOGD("processCommandBuffer: samsung request=%d, index=%d",
+                request, index);
+        pRI->pCI = &(s_commands[index]);
+    } else {
+        pRI->pCI = &(s_commands[request]);
+    }
+
     pRI->pCI = &(s_commands[request]);
     pRI->socket_id = socket_id;
 
@@ -3967,8 +3989,14 @@ RIL_register (const RIL_RadioFunctions *callbacks) {
     }
 
     for (int i = 0; i < (int)NUM_ELEMS(s_unsolResponses); i++) {
-        assert(i + RIL_UNSOL_RESPONSE_BASE
+        /* Hack to include Samsung responses */
+        if (i > MAX_RIL_UNSOL - RIL_UNSOL_RESPONSE_BASE) {
+            assert(i + SAMSUNG_UNSOL_RESPONSE_BASE - MAX_RIL_UNSOL
                 == s_unsolResponses[i].requestNumber);
+        } else {
+            assert(i + RIL_UNSOL_RESPONSE_BASE
+                == s_unsolResponses[i].requestNumber);
+        }
     }
 
     // New rild impl calls RIL_startEventLoop() first
@@ -4334,7 +4362,13 @@ void RIL_onUnsolicitedResponse(int unsolResponse, void *data,
         return;
     }
 
-    unsolResponseIndex = unsolResponse - RIL_UNSOL_RESPONSE_BASE;
+    /* Hack to include Samsung responses */
+    if (unsolResponse > SAMSUNG_UNSOL_RESPONSE_BASE) {
+        unsolResponseIndex = unsolResponse - SAMSUNG_UNSOL_RESPONSE_BASE + MAX_RIL_UNSOL - RIL_UNSOL_RESPONSE_BASE;
+        RLOGD("SAMSUNG: unsolResponse=%d, unsolResponseIndex=%d", unsolResponse, unsolResponseIndex);
+    } else {
+        unsolResponseIndex = unsolResponse - RIL_UNSOL_RESPONSE_BASE;
+    }
 
     if ((unsolResponseIndex < 0)
         || (unsolResponseIndex >= (int32_t)NUM_ELEMS(s_unsolResponses))) {
@@ -4398,6 +4432,7 @@ void RIL_onUnsolicitedResponse(int unsolResponse, void *data,
             // before this message can be processed.
             p.writeInt64(timeReceived);
         break;
+
     }
 
     RLOGI("%s UNSOLICITED: %s length:%d", rilSocketIdToString(soc_id), requestToString(unsolResponse), p.dataSize());
@@ -4671,7 +4706,7 @@ requestToString(int request) {
         case RIL_REQUEST_SET_DATA_PROFILE: return "SET_DATA_PROFILE";
         case RIL_UNSOL_RESPONSE_RADIO_STATE_CHANGED: return "UNSOL_RESPONSE_RADIO_STATE_CHANGED";
         case RIL_UNSOL_RESPONSE_CALL_STATE_CHANGED: return "UNSOL_RESPONSE_CALL_STATE_CHANGED";
-        case RIL_UNSOL_RESPONSE_VOICE_NETWORK_STATE_CHANGED: return "UNSOL_RESPONSE_VOICE_NETWORK_STATE_CHANGED";
+        case RIL_UNSOL_RESPONSE_VOICE_NETWORK_STATE_CHANGED: return "UNSOL_RESPONSE_NETWORK_STATE_CHANGED";
         case RIL_UNSOL_RESPONSE_NEW_SMS: return "UNSOL_RESPONSE_NEW_SMS";
         case RIL_UNSOL_RESPONSE_NEW_SMS_STATUS_REPORT: return "UNSOL_RESPONSE_NEW_SMS_STATUS_REPORT";
         case RIL_UNSOL_RESPONSE_NEW_SMS_ON_SIM: return "UNSOL_RESPONSE_NEW_SMS_ON_SIM";
