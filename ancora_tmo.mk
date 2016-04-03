@@ -96,6 +96,7 @@ PRODUCT_PACKAGES += \
     memtrack.msm7x30 \
     gps.msm7x30 \
     lights.msm7x30 \
+    libshims \
     power.msm7x30 \
     sensors.ancora_tmo \
     audio.primary.msm7x30 \
