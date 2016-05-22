@@ -61,17 +61,18 @@ import android.telephony.Rlog;
 
 public class SamsungRIL extends RIL implements CommandsInterface {
 
+    private boolean setPreferredNetworkTypeSeen = false;
     private boolean mSignalbarCount = SystemProperties.getInt("ro.telephony.sends_barcount", 0) == 1 ? true : false;
     private boolean mIsSamsungCdma = SystemProperties.getBoolean("ro.ril.samsung_cdma", false);
     private Object mCatProCmdBuffer;
 
-    public SamsungRIL(Context context, int preferredNetworkType,
-            int cdmaSubscription, Integer instanceId) {
-        this(context, preferredNetworkType, cdmaSubscription);
+    public SamsungRIL(Context context, int preferredNetworkType, int cdmaSubscription) {
+        this(context, preferredNetworkType, cdmaSubscription, null);
     }
 
-    public SamsungRIL(Context context, int networkMode, int cdmaSubscription) {
-        super(context, networkMode, cdmaSubscription);
+    public SamsungRIL(Context context, int preferredNetworkType,
+		    int cdmaSubscription, Integer instanceId) {
+        super(context, preferredNetworkType, cdmaSubscription, instanceId);
     }
 
     // SAMSUNG SGS STATES
@@ -118,6 +119,7 @@ public class SamsungRIL extends RIL implements CommandsInterface {
     @Override
     protected RILRequest
     processSolicited (Parcel p) {
+	boolean rilfix = SystemProperties.getBoolean("persist.rilfix", true); /*will be removed after testing marshmallow patch*/
         int serial, error;
 
         serial = p.readInt();
@@ -153,7 +155,7 @@ public class SamsungRIL extends RIL implements CommandsInterface {
             case RIL_REQUEST_ENTER_SIM_PUK2: ret =  responseInts(p); break;
             case RIL_REQUEST_CHANGE_SIM_PIN: ret =  responseInts(p); break;
             case RIL_REQUEST_CHANGE_SIM_PIN2: ret =  responseInts(p); break;
-            case RIL_REQUEST_ENTER_DEPERSONALIZATION_CODE: ret =  responseInts(p); break;
+            case RIL_REQUEST_ENTER_NETWORK_DEPERSONALIZATION: ret =  responseInts(p); break;
             case RIL_REQUEST_GET_CURRENT_CALLS: ret =  responseCallList(p); break;
             case RIL_REQUEST_DIAL: ret =  responseVoid(p); break;
             case RIL_REQUEST_GET_IMSI: ret =  responseString(p); break;
@@ -163,7 +165,14 @@ public class SamsungRIL extends RIL implements CommandsInterface {
             case RIL_REQUEST_SWITCH_WAITING_OR_HOLDING_AND_ACTIVE: ret =  responseVoid(p); break;
             case RIL_REQUEST_CONFERENCE: ret =  responseVoid(p); break;
             case RIL_REQUEST_UDUB: ret =  responseVoid(p); break;
-            case RIL_REQUEST_LAST_CALL_FAIL_CAUSE: ret =  responseLastCallFailCause(p); break;
+            case RIL_REQUEST_LAST_CALL_FAIL_CAUSE: {
+		if (rilfix) {
+			ret =  responseFailCause(p);
+		} else {
+			ret =  responseLastCallFailCause(p);
+		}
+		break;
+            } /*will be removed after testing marshmallow patch*/
             case RIL_REQUEST_SIGNAL_STRENGTH: ret =  responseSignalStrength(p); break;
             case RIL_REQUEST_VOICE_REGISTRATION_STATE: ret =  responseVoiceRegistrationState(p); break;
             case RIL_REQUEST_DATA_REGISTRATION_STATE: ret =  responseStrings(p); break;
@@ -273,6 +282,14 @@ public class SamsungRIL extends RIL implements CommandsInterface {
                 }
                 return rr;
             }
+        }
+		
+        if (rr.mRequest == RIL_REQUEST_SHUTDOWN) {
+            // Set RADIO_STATE to RADIO_UNAVAILABLE to continue shutdown process
+            // regardless of error code to continue shutdown procedure.
+            riljLog("Response to RIL_REQUEST_SHUTDOWN received. Error is " +
+                    error + " Setting Radio State to Unavailable regardless of error.");
+            setRadioState(RadioState.RADIO_UNAVAILABLE);
         }
 
         if (error != 0) {
@@ -869,7 +886,7 @@ public class SamsungRIL extends RIL implements CommandsInterface {
     notifyRegistrantsCdmaInfoRec(CdmaInformationRecords infoRec) {
         final int response = RIL_UNSOL_CDMA_INFO_REC;
 
-        if (/* mIsSamsungCdma && */ infoRec.record instanceof CdmaSignalInfoRec) {
+        if (infoRec.record instanceof CdmaSignalInfoRec) {
             CdmaSignalInfoRec sir = (CdmaSignalInfoRec)infoRec.record;
             if (sir != null && sir.isPresent &&
                 sir.signalType == SignalToneUtil.IS95_CONST_IR_SIGNAL_IS54B &&
@@ -912,6 +929,12 @@ public class SamsungRIL extends RIL implements CommandsInterface {
         /* Samsung modem implementation does bad things when a datacall is running
          * while switching the preferred networktype.
          */
+
+        if (!setPreferredNetworkTypeSeen) {
+            setRadioPower(false, null);
+            setPreferredNetworkTypeSeen = true;
+        }
+
         ConnectivityManager cm =
             (ConnectivityManager)mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
 
@@ -989,6 +1012,16 @@ public class SamsungRIL extends RIL implements CommandsInterface {
             response.sendToTarget();
         }
      }
+	 
+    @Override
+    public void getRadioCapability (Message response) {
+        riljLog("getRadioCapability: returning static radio capability");
+        if (response != null) {
+            Object ret = makeStaticRadioCapability();
+            AsyncResult.forMessage(response, ret, null);
+            response.sendToTarget();
+        }
+    }
 
     /**
      * RIL doesn't support RIL_REQUEST_SEND_SMS_EXPECT_MORE to send a multipart sms,

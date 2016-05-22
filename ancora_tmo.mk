@@ -18,9 +18,8 @@ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 PRODUCT_AAPT_CONFIG := normal hdpi
 PRODUCT_AAPT_PREF_CONFIG := hdpi
 
-PRODUCT_BOOT_JARS += qcmediaplayer
-
 # Boot animation
+TARGET_BOOTANIMATION_HALF_RES := true
 TARGET_SCREEN_HEIGHT := 800
 TARGET_SCREEN_WIDTH := 480
 
@@ -47,6 +46,7 @@ PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video_le.xml:system/etc/media_codecs_google_video_le.xml \
     $(LOCAL_PATH)/media/media_codecs.xml:system/etc/media_codecs.xml \
+    $(LOCAL_PATH)/media/media_codecs_performance.xml:system/etc/media_codecs_performance.xml \
     $(LOCAL_PATH)/media/media_profiles.xml:system/etc/media_profiles.xml
 
 # Audio configuration
@@ -64,13 +64,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/nvram_net.txt:system/vendor/firmware/nvram_net.txt
 
-# Wifi
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf
-
 # MAC adress tool
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/system/etc/init.qcom.mac_addr.sh:system/etc/init.qcom.mac_addr.sh
+    $(LOCAL_PATH)/rootdir/system/bin/get_macaddrs:system/bin/get_macaddrs
 
 # Input device calibration files
 PRODUCT_COPY_FILES += \
@@ -103,7 +99,8 @@ PRODUCT_PACKAGES += \
     audio.usb.default \
     libaudio-resampler \
     libaudioparameter \
-    libgenlock
+    libgenlock \
+    libstlport
 
 PRODUCT_PACKAGES += \
     libmm-omxcore \
@@ -111,33 +108,30 @@ PRODUCT_PACKAGES += \
     libOmxVenc \
     libOmxVdec \
     libstagefrighthw \
-    libc2dcolorconvert \
-    libdashplayer
+    libc2dcolorconvert
 
 PRODUCT_PACKAGES += \
     badblocks \
-    e2fsck \
-    mke2fs \
     mke2fs.conf \
     resize2fs \
-    tune2fs \
-    make_ext4fs \
-    setup_fs
-
-PRODUCT_PACKAGES += \
-    fsck.f2fs \
-    mkfs.f2fs
-
-PRODUCT_PACKAGES += \
-    com.android.future.usb.accessory
+    make_ext4fs
 
 PRODUCT_PACKAGES += \
     libexifa \
     libjpega
 
-# qcmediaplayer
+# Device-specific packages
 PRODUCT_PACKAGES += \
-    qcmediaplayer
+    Snap \
+    Gello
+
+PRODUCT_PACKAGES += \
+    AncoraParts \
+
+# Libshims
+PRODUCT_PACKAGES += \
+    libshim_native \
+    libshim_ril
 
 # IPv6 tethering
 PRODUCT_PACKAGES += \

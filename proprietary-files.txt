@@ -6,9 +6,12 @@
 /bin/BCM4329B1_002.002.023.0944.0953.hcd
 /bin/rmt_storage
 
+<<<<<<< HEAD
 /cameradata/datapattern_420sp_T679.yuv
 /cameradata/datapattern_front_420sp_T679.yuv
 
+=======
+>>>>>>> 65a5682... Initial MM 6.0 changes
 /etc/firmware/vidc_720p_command_control.fw
 /etc/firmware/vidc_720p_h263_dec_mc.fw
 /etc/firmware/vidc_720p_h264_dec_mc.fw
@@ -19,13 +22,18 @@
 /etc/firmware/yamato_pfp.fw
 /etc/firmware/yamato_pm4.fw
 
-/lib/egl/libEGL_adreno200.so
-/lib/egl/libGLESv1_CM_adreno200.so
-/lib/egl/libGLESv2_adreno200.so
-/lib/egl/libq3dtools_adreno200.so
+/lib/egl/libEGL_adreno.so
+/lib/egl/libGLESv1_CM_adreno.so
+/lib/egl/libGLESv2_adreno.so
+/lib/egl/libq3dtools_adreno.so
 
+<<<<<<< HEAD
 /lib/hw/lights.msm7k.so
 /lib/hw/sensors.SGH-T679.so
+=======
+/lib/hw/lights.msm7x30.so
+/lib/hw/sensors.ancora.so
+>>>>>>> 65a5682... Initial MM 6.0 changes
 
 /lib/libActionShot.so
 /lib/libakm.so
