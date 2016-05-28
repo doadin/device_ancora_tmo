@@ -64,6 +64,3 @@ dalvik.vm.heapsize=128m
 dalvik.vm.heaptargetutilization=0.9
 dalvik.vm.heapminfree=512k
 dalvik.vm.heapmaxfree=2m
-
-# Ril testing
-persist.rilfix=false

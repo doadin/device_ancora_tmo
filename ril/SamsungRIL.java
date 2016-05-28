@@ -119,7 +119,6 @@ public class SamsungRIL extends RIL implements CommandsInterface {
     @Override
     protected RILRequest
     processSolicited (Parcel p) {
-	boolean rilfix = SystemProperties.getBoolean("persist.rilfix", true); /*will be removed after testing marshmallow patch*/
         int serial, error;
 
         serial = p.readInt();
@@ -160,14 +159,7 @@ public class SamsungRIL extends RIL implements CommandsInterface {
             case RIL_REQUEST_SWITCH_WAITING_OR_HOLDING_AND_ACTIVE: ret =  responseVoid(p); break;
             case RIL_REQUEST_CONFERENCE: ret =  responseVoid(p); break;
             case RIL_REQUEST_UDUB: ret =  responseVoid(p); break;
-            case RIL_REQUEST_LAST_CALL_FAIL_CAUSE: {
-		if (rilfix) {
-			ret =  responseFailCause(p);
-		} else {
-			ret =  responseLastCallFailCause(p);
-		}
-		break;
-            } /*will be removed after testing marshmallow patch*/
+            case RIL_REQUEST_LAST_CALL_FAIL_CAUSE: ret =  responseFailCause(p); break;
             case RIL_REQUEST_SIGNAL_STRENGTH: ret =  responseSignalStrength(p); break;
             case RIL_REQUEST_VOICE_REGISTRATION_STATE: ret =  responseVoiceRegistrationState(p); break;
             case RIL_REQUEST_DATA_REGISTRATION_STATE: ret =  responseStrings(p); break;
@@ -607,21 +599,6 @@ public class SamsungRIL extends RIL implements CommandsInterface {
         }
 
         Collections.sort(response);
-
-        return response;
-    }
-
-    protected Object
-    responseLastCallFailCause(Parcel p) {
-        int response[] = (int[])responseInts(p);
-
-        if (mIsSamsungCdma && response.length > 0 &&
-            response[0] == com.android.internal.telephony.cdma.CallFailCause.ERROR_UNSPECIFIED) {
-
-            // Far-end hangup returns ERROR_UNSPECIFIED, which shows "Call Lost" dialog.
-            Rlog.d(RILJ_LOG_TAG, "Overriding ERROR_UNSPECIFIED fail cause with NORMAL_CLEARING.");
-            response[0] = com.android.internal.telephony.cdma.CallFailCause.NORMAL_CLEARING;
-        }
 
         return response;
     }
