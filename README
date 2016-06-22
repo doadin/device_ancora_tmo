@@ -38,6 +38,6 @@
 # Needed Patches:
 # 1-https://github.com/CyanogenMod/android_frameworks_opt_telephony/commit/8dd84c2dcc51c4d4cd37e1b366ada1015949bc10
 # 2-https://github.com/AriesVE-DevCon-TEAM/android_frameworks_native/commit/10c37980f508fd5f12c091f6676ff80ff85a940f
-# 3-https://github.com/lollipopi9000/android_bionic/commit/8bc5bb8918a782ee4de69ab26f9b28e292e10594
+# 3-https://github.com/sirmordred/android_bionic/commit/b1e089a5bd0f9eaf0b4f9ab9a58a246c2cb88d23
 # 4-http://review.cyanogenmod.org/#/c/117733/
 # 5-https://github.com/lollipopi9000/android_bionic/commit/0ac7b519a9b817ecbc9aa12efcda4f505a253b39
