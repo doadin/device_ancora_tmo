@@ -51,7 +51,7 @@ PRODUCT_COPY_FILES += \
 
 # Audio configuration
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf
+    $(LOCAL_PATH)/config/audio_policy.conf:system/etc/audio_policy.conf
 
 # Ramdisk
 PRODUCT_COPY_FILES += \
@@ -62,7 +62,7 @@ PRODUCT_COPY_FILES += \
 
 # Wifi calibration
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/nvram_net.txt:system/vendor/firmware/nvram_net.txt
+    $(LOCAL_PATH)/config/nvram_net.txt:system/vendor/firmware/nvram_net.txt
 
 # MAC adress tool
 PRODUCT_COPY_FILES += \
@@ -70,7 +70,7 @@ PRODUCT_COPY_FILES += \
 
 # Input device calibration files
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/sec_touchscreen.idc:system/usr/idc/sec_touchscreen.idc
+    $(LOCAL_PATH)/config/sec_touchscreen.idc:system/usr/idc/sec_touchscreen.idc
 
 # Keylayouts
 PRODUCT_COPY_FILES += \
@@ -166,7 +166,3 @@ PRODUCT_PROPERTY_OVERRIDES += \
 $(call inherit-product-if-exists, vendor/samsung/ancora_tmo/device-vendor.mk)
 $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4329/device-bcm.mk)
 $(call inherit-product, frameworks/native/build/phone-hdpi-512-dalvik-heap.mk)
-
-# Wifi
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/config/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf
