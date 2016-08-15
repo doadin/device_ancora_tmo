@@ -26,12 +26,12 @@
 
 # inherit from the proprietary version
 
-TARGET_SPECIFIC_HEADER_PATH += device/samsung/ancora/include
+TARGET_SPECIFIC_HEADER_PATH += device/samsung/ancora_tmo/include
 
 # Platform
 TARGET_BOARD_PLATFORM := msm7x30
-TARGET_BOOTLOADER_BOARD_NAME := ancora
-TARGET_OTA_ASSERT_DEVICE := ancora,GT-I8150
+TARGET_BOOTLOADER_BOARD_NAME := ancora_tmo
+TARGET_OTA_ASSERT_DEVICE := ancora_tmo,SGH-T697,ancora
 TARGET_NO_BOOTLOADER := true
 
 # Architecture
@@ -54,8 +54,8 @@ BOARD_USES_LEGACY_MMAP := true
 # Kernel
 BOARD_KERNEL_BASE := 0x00400000
 BOARD_KERNEL_PAGESIZE := 2048
-TARGET_KERNEL_SOURCE := kernel/samsung/msm7x30-common
-TARGET_KERNEL_CONFIG := ancora_defconfig
+TARGET_KERNEL_SOURCE := kernel/samsung/ancora_tmo
+TARGET_KERNEL_CONFIG := ancora_tmo_defconfig
 
 # Build kernel with GCC 4.9
 #TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-linux-androideabi-
@@ -87,15 +87,15 @@ BOARD_HAL_STATIC_LIBRARIES := libhealthd.msm
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/ancora/bluetooth
-BOARD_BLUEDROID_VENDOR_CONF := device/samsung/ancora/bluetooth/vnd_ancora.txt
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/ancora_tmo/bluetooth
+BOARD_BLUEDROID_VENDOR_CONF := device/samsung/ancora_tmo/bluetooth/vnd_ancora.txt
 
 # RIL
 COMMON_GLOBAL_CFLAGS += -DDISABLE_ASHMEM_TRACKING
 TARGET_NEEDS_BIONIC_PRELINK_SUPPORT := true
 TARGET_ENABLE_NON_PIE_SUPPORT := true
 BOARD_MOBILEDATA_INTERFACE_NAME = "pdp0"
-BOARD_RIL_CLASS := ../../../device/samsung/ancora/ril/
+BOARD_RIL_CLASS := ../../../device/samsung/ancora_tmo/ril/
 
 # Audio
 BOARD_USES_LEGACY_ALSA_AUDIO := true
@@ -126,7 +126,7 @@ TARGET_PROVIDES_LIBLIGHT := true
 EXTENDED_FONT_FOOTPRINT := true
 
 # CM Hardware
-BOARD_HARDWARE_CLASS := device/samsung/ancora/cmhw
+BOARD_HARDWARE_CLASS := device/samsung/ancora_tmo/cmhw
 
 # GPS
 USE_DEVICE_SPECIFIC_GPS := true
