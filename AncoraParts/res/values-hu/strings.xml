@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2013 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+ -->
+<resources>
+    <string name="app_name">Haladó beállítások</string>
+
+    <!-- Page Headers -->
+    <string name="tab_general_title">ÁLTALÁNOS</string>
+    <string name="tab_performance_title">TELJESÍTMÉNY</string>
+
+    <string name="category_fast_charge_title">Gyors töltés engedélyezése</string>
+    <string name="force_fast_charge">Gyors töltés kényszerítése</string>
+    <string name="force_fast_charge_summary">A PC-hez való USB csatlakozást érzékelje fali töltőként a gyorsabb töltés érdekében</string>
+
+    <!-- Page Performance -->
+    <string name="category_performance_title">Teljesítmény</string>
+    <string name="low_ram_title">Alacsony RAM-használat</string>
+    <string name="low_ram_summary_on">Alacsony RAM-használat engedélyezve, ezzel járó memóriakezelési tiltásokkal együtt</string>
+    <string name="low_ram_summary_off">Alacsony RAM-használat letiltva, memóriakezelési tiltások feloldva</string>
+    <string name="low_ram_error">Hiba! Engedélyezd ennek az alkalmazásnak a root-jogokat!</string>
+
+    <string name="reboot_alert">A beállítás engedélyezéséhez újra kell indítani a készüléket.\nSzeretnéd most megtenni?\n\nNyomj igent ha most, nem-et ha később indítanál újra.</string>
+    <string name="reboot_wait">A készülék %1$d másodperc múlva újraindul, kis türelem...</string>
+    <string name="reboot_yes">Igen</string>
+    <string name="reboot_no">Nem</string>
+</resources>

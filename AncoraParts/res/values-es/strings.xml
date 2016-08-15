@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2013 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+ -->
+<resources>
+    <string name="app_name">Opciones avanzadas</string>
+
+    <!-- Page Headers -->
+    <string name="tab_general_title">GENERAL</string>
+    <string name="tab_performance_title">RENDIMENTO</string>
+
+    <string name="category_fast_charge_title">Carga rápida</string>
+    <string name="force_fast_charge_usbwarning">Desconecta el cable USB</string>
+    <string name="force_fast_charge">Forzar carga rápida</string>
+    <string name="force_fast_charge_summary">Detectar PC conectado al puerto USB como un cargador USB, para una carga más rápida</string>
+
+    <!-- Page Performance -->
+    <string name="category_performance_title">Rendimento</string>
+    <string name="low_ram_title">Optimizar RAM</string>
+    <string name="low_ram_summary_on">Uso óptimo de RAM activado. Las funciones con gran consumo de RAM están desactivadas</string>
+    <string name="low_ram_summary_off">Uso óptimo de RAM desactivado. Las funciones con gran consumo de RAM están activadas</string>
+    <string name="low_ram_error">Imposible optimizar RAM. Por favor, establece permisos root para esta función</string>
+
+    <string name="reboot_alert">Para aplicar la configuración es necesario reiniciar.\n¿Reiniciar ahora?\n\nPulsa Sí para reiniciar ahora, o pulsa No para reiniciar más tarde.</string>
+    <string name="reboot_wait">El dispositivo se reiniciará en %1$d segundos. Espera, por favor.</string>
+    <string name="reboot_yes">Sí</string>
+    <string name="reboot_no">No</string>
+</resources>
