@@ -146,9 +146,9 @@ TARGET_USERIMAGES_USE_F2FS := true
 
 # TWRP recovery
 DEVICE_RESOLUTION := 480x800
-TARGET_RECOVERY_DEVICE_DIRS := device/samsung/ancora
+TARGET_RECOVERY_DEVICE_DIRS := device/samsung/ancora_tmo
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
-TARGET_RECOVERY_FSTAB := device/samsung/ancora/rootdir/fstab.qcom
+TARGET_RECOVERY_FSTAB := device/samsung/ancora_tmo/rootdir/fstab.qcom
 TW_TARGET_USES_QCOM_BSP := true
 TW_SCREEN_BLANK_ON_BOOT := true
 TW_BRIGHTNESS_PATH := /sys/devices/platform/msm_fb.196609/leds/lcd-backlight/brightness
@@ -170,4 +170,4 @@ BOARD_CHARGER_ENABLE_SUSPEND := true
 
 # SELinux
 #BOARD_SEPOLICY_DIRS += \
-    device/samsung/ancora/sepolicy
+    device/samsung/ancora_tmo/sepolicy
