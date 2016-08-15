@@ -25,19 +25,13 @@
 # against the traditional rules of inheritance).
 
 # inherit from the proprietary version
-<<<<<<< HEAD
--include vendor/samsung/ancora_tmo/BoardConfigVendor.mk
-
-TARGET_SPECIFIC_HEADER_PATH := device/samsung/ancora_tmo/include
-=======
 
 TARGET_SPECIFIC_HEADER_PATH += device/samsung/ancora/include
->>>>>>> 65a5682... Initial MM 6.0 changes
 
 # Platform
 TARGET_BOARD_PLATFORM := msm7x30
-TARGET_BOOTLOADER_BOARD_NAME := ancora_tmo
-TARGET_OTA_ASSERT_DEVICE := ancora_tmo,SGH-T697,ancora
+TARGET_BOOTLOADER_BOARD_NAME := ancora
+TARGET_OTA_ASSERT_DEVICE := ancora,GT-I8150
 TARGET_NO_BOOTLOADER := true
 
 # Architecture
@@ -60,8 +54,8 @@ BOARD_USES_LEGACY_MMAP := true
 # Kernel
 BOARD_KERNEL_BASE := 0x00400000
 BOARD_KERNEL_PAGESIZE := 2048
-TARGET_KERNEL_SOURCE := kernel/samsung/ancora_tmo
-TARGET_KERNEL_CONFIG := ancora_tmo_defconfig
+TARGET_KERNEL_SOURCE := kernel/samsung/msm7x30-common
+TARGET_KERNEL_CONFIG := ancora_defconfig
 
 # Build kernel with GCC 4.9
 #TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-linux-androideabi-
@@ -93,25 +87,19 @@ BOARD_HAL_STATIC_LIBRARIES := libhealthd.msm
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/ancora_tmo/bluetooth
-BOARD_BLUEDROID_VENDOR_CONF := device/samsung/ancora_tmo/bluetooth/vnd_ancora.txt
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/ancora/bluetooth
+BOARD_BLUEDROID_VENDOR_CONF := device/samsung/ancora/bluetooth/vnd_ancora.txt
 
 # RIL
 COMMON_GLOBAL_CFLAGS += -DDISABLE_ASHMEM_TRACKING
 TARGET_NEEDS_BIONIC_PRELINK_SUPPORT := true
 TARGET_ENABLE_NON_PIE_SUPPORT := true
 BOARD_MOBILEDATA_INTERFACE_NAME = "pdp0"
-<<<<<<< HEAD
-BOARD_RIL_CLASS := ../../../device/samsung/ancora_tmo/ril/
-BOARD_USES_LEGACY_RIL := true
-=======
 BOARD_RIL_CLASS := ../../../device/samsung/ancora/ril/
->>>>>>> 65a5682... Initial MM 6.0 changes
 
 # Audio
-COMMON_GLOBAL_CFLAGS += -DQCOM_ENHANCED_AUDIO
-BOARD_HAVE_SAMSUNG_AUDIO := true
 BOARD_USES_LEGACY_ALSA_AUDIO := true
+BOARD_HAVE_SAMSUNG_AUDIO := true
 AUDIO_FEATURE_ENABLED_INCALL_MUSIC := false
 AUDIO_FEATURE_ENABLED_COMPRESS_VOIP := false
 AUDIO_FEATURE_ENABLED_PROXY_DEVICE := false
@@ -138,18 +126,10 @@ TARGET_PROVIDES_LIBLIGHT := true
 EXTENDED_FONT_FOOTPRINT := true
 
 # CM Hardware
-BOARD_HARDWARE_CLASS := device/samsung/ancora_tmo/cmhw
+BOARD_HARDWARE_CLASS := device/samsung/ancora/cmhw
 
 # GPS
-<<<<<<< HEAD
-TARGET_GPS_HAL_PATH := device/samsung/ancora_tmo/gps
-BOARD_USES_QCOM_GPS := true
-BOARD_VENDOR_QCOM_AMSS_VERSION := 6225
-BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := msm7x30
-BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
-=======
 USE_DEVICE_SPECIFIC_GPS := true
->>>>>>> 65a5682... Initial MM 6.0 changes
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 5767168
@@ -159,29 +139,12 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 1832894464
 BOARD_CACHEIMAGE_PARTITION_SIZE := 560988160
 BOARD_FLASH_BLOCK_SIZE := 131072
 
-<<<<<<< HEAD
-# Recovery
-TARGET_RECOVERY_DEVICE_DIRS += device/samsung/ancora_tmo
-TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
-TARGET_RECOVERY_FSTAB := device/samsung/ancora_tmo/rootdir/fstab.qcom
-TARGET_USERIMAGES_USE_EXT4 := true
-COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
-TARGET_USERIMAGES_USE_F2FS := true
-
-# Vold
-BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
-
-# Charger
-BOARD_CHARGER_DISABLE_INIT_BLANK := true
-BOARD_CHARGER_ENABLE_SUSPEND := true
-=======
 # Misc. filesystem settings
 #BOARD_SYSTEMIMAGE_JOURNAL_SIZE := 0
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
->>>>>>> 65a5682... Initial MM 6.0 changes
 
-# TWRP recovery stuff
+# TWRP recovery
 DEVICE_RESOLUTION := 480x800
 TARGET_RECOVERY_DEVICE_DIRS := device/samsung/ancora
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
@@ -198,53 +161,13 @@ TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sd"
 TW_NO_REBOOT_BOOTLOADER := true
 TW_HAS_DOWNLOAD_MODE := true
 TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID := true
-TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 TW_INCLUDE_FB2PNG := true
-<<<<<<< HEAD
-#RECOVERY_VARIANT := twrp
-=======
 TW_NO_CPU_TEMP := true
->>>>>>> 65a5682... Initial MM 6.0 changes
 
 # Charger
 BOARD_CHARGER_DISABLE_INIT_BLANK := true
 BOARD_CHARGER_ENABLE_SUSPEND := true
 
 # SELinux
-<<<<<<< HEAD
-BOARD_SEPOLICY_DIRS += \
-    device/samsung/ancora_tmo/sepolicy
-
-BOARD_SEPOLICY_UNION += \
-    file_contexts \
-    genfs_contexts \
-    property_contexts \
-    bridge.te \
-    camera.te \
-    device.te \
-    dhcp.te \
-    domain.te \
-    file.te \
-    healthd.te \
-    init.te \
-    kernel.te \
-    mac_update.te \
-    mediaserver.te \
-    netd.te \
-    platform_app.te \
-    property.te \
-    rild.te \
-    rmt.te \
-    su.te \
-    surfaceflinger.te \
-    system_app.te \
-    system_server.te \
-    tee.te \
-    ueventd.te \
-    untrusted_app.te \
-    vold.te \
-    wpa_supplicant.te
-=======
 #BOARD_SEPOLICY_DIRS += \
     device/samsung/ancora/sepolicy
->>>>>>> 65a5682... Initial MM 6.0 changes

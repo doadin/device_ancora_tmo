@@ -18,9 +18,6 @@
         <value>3</value>
     </array>
     <array name="cpu.speeds">
-<<<<<<< HEAD
-        <value>1024000</value>
-=======
         <value>1824000</value>
         <value>1804800</value>
         <value>1766400</value>
@@ -35,7 +32,6 @@
         <value>1113600</value>
         <value>1017600</value>
         <value>902400</value>
->>>>>>> 65a5682... Initial MM 6.0 changes
         <value>806400</value>
         <value>768000</value>
         <value>368640</value>

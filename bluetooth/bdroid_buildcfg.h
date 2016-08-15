@@ -18,12 +18,8 @@
 #ifndef _BDROID_BUILDCFG_H
 #define _BDROID_BUILDCFG_H
 
-<<<<<<< HEAD
 #define BTM_DEF_LOCAL_NAME   "SGH-T679"
 // skips conn update at conn completion
-=======
-#define BTM_DEF_LOCAL_NAME   "GT-I8150"
->>>>>>> 65a5682... Initial MM 6.0 changes
 #define BTA_BLE_SKIP_CONN_UPD TRUE
 #define BTA_SKIP_BLE_READ_REMOTE_FEAT TRUE
 #define BLE_INCLUDED FALSE

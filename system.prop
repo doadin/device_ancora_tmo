@@ -51,16 +51,12 @@ config.disable_atlas=true
 # Enable smooth streaming
 mm.enable.smoothstreaming=true
 
-<<<<<<< HEAD
 # Uncomment the following line to enable Bluetooth A2DP sink
 #persist.service.bt.a2dp.sink=true
 
 # USB-OTG
 persist.sys.isUsbOtgEnabled=true
 
-# I/O scheduler
-sys.io.scheduler=bfq
-=======
 # Multi-window
 #persist.sys.debug.multi_window=true
 
@@ -71,7 +67,3 @@ dalvik.vm.heapsize=128m
 dalvik.vm.heaptargetutilization=0.9
 dalvik.vm.heapminfree=512k
 dalvik.vm.heapmaxfree=2m
-
-# Ril testing
-persist.rilfix=false
->>>>>>> 65a5682... Initial MM 6.0 changes
