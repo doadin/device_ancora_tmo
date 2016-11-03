@@ -74,8 +74,10 @@
 /dev/akm8975                   u:object_r:sensors_device:s0
 
 # Sysfs
+/sys/class/input/event3/device/calibration      --  u:object_r:sysfs_custom:s0
 /sys/devices/virtual/input/input3/calibration          --  u:object_r:sysfs_custom:s0
 /sys/devices/virtual/sec/switch/otg_charger_type       --  u:object_r:sysfs_custom:s0
+/sys/class/sec/switch/otg_charger_type          --  u:object_r:sysfs_custom:s0
 /sys/kernel/fast_charge/force_fast_charge              --  u:object_r:sysfs_custom:s0
 
 # Sysfs Bluetooth
