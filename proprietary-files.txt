@@ -1,17 +1,12 @@
-# Sample file to extract required files from an original Samsung Galaxy Exhibit device
+# Sample file to extract required files from an original Samsung Galaxy Exhibit II 4G device
 # This script is not required if you have the proprietary repository
 #
 # This file is the file list used by extract-files.sh
 
-/bin/BCM4329B1_002.002.023.0944.0953.hcd
+/bin/BCM4329B1_002.002.023.0944.0952.hcd
 /bin/rmt_storage
+/bin/radish
 
-<<<<<<< HEAD
-/cameradata/datapattern_420sp_T679.yuv
-/cameradata/datapattern_front_420sp_T679.yuv
-
-=======
->>>>>>> 65a5682... Initial MM 6.0 changes
 /etc/firmware/vidc_720p_command_control.fw
 /etc/firmware/vidc_720p_h263_dec_mc.fw
 /etc/firmware/vidc_720p_h264_dec_mc.fw
@@ -27,13 +22,8 @@
 /lib/egl/libGLESv2_adreno.so
 /lib/egl/libq3dtools_adreno.so
 
-<<<<<<< HEAD
-/lib/hw/lights.msm7k.so
-/lib/hw/sensors.SGH-T679.so
-=======
 /lib/hw/lights.msm7x30.so
 /lib/hw/sensors.ancora.so
->>>>>>> 65a5682... Initial MM 6.0 changes
 
 /lib/libActionShot.so
 /lib/libakm.so
@@ -48,7 +38,6 @@
 /lib/libmmjpeg.so
 /lib/libmmosal.so
 /lib/libmmparser.so
-/lib/libOmxMp3Dec.so
 /lib/liboemcamera.so
 /lib/libOpenVG.so
 /lib/libPanoraMax3.so

@@ -20,4 +20,4 @@ PRODUCT_NAME := full_ancora_tmo
 PRODUCT_DEVICE := ancora_tmo
 PRODUCT_BRAND := samsung
 PRODUCT_MANUFACTURER := samsung
-PRODUCT_MODEL := SGH-T679
+PRODUCT_MODEL := ancora_tmo, SGH-T679

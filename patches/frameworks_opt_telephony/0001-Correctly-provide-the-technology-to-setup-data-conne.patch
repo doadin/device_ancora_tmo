@@ -1,0 +1,59 @@
+From abe59a2f7bf6d958695de64db3ee4d8adb2893cd Mon Sep 17 00:00:00 2001
+From: Cristoforo Cataldo <cristoforo.cataldo@gmail.com>
+Date: Tue, 9 Dec 2014 01:11:09 +0100
+Subject: [PATCH] Correctly provide the technology to setup data connection
+
+This commit allows to correctly manage GSM data connection on legacy
+RILs and provides a better readable method to get the technology that
+will be used to setup data connection.
+
+Change-Id: Ide4e5d193a35d6f02c5320fe8afe9a24659c97d9
+---
+ src/java/com/android/internal/telephony/RIL.java        |  2 +-
+ .../telephony/dataconnection/DataConnection.java        | 17 +++++++++++++++++
+ 2 files changed, 18 insertions(+), 1 deletion(-)
+
+diff --git a/src/java/com/android/internal/telephony/RIL.java b/src/java/com/android/internal/telephony/RIL.java
+index 2b22a61..19e34ad 100644
+--- a/src/java/com/android/internal/telephony/RIL.java
++++ b/src/java/com/android/internal/telephony/RIL.java
+@@ -27,7 +27,7 @@ import static android.telephony.TelephonyManager.NETWORK_TYPE_UMTS;
+ import static android.telephony.TelephonyManager.NETWORK_TYPE_HSDPA;
+ import static android.telephony.TelephonyManager.NETWORK_TYPE_HSUPA;
+ import static android.telephony.TelephonyManager.NETWORK_TYPE_HSPA;
+-
++import static android.telephony.TelephonyManager.NETWORK_TYPE_LTE;
+ import android.content.BroadcastReceiver;
+ import android.content.Context;
+ import android.content.Intent;
+diff --git a/src/java/com/android/internal/telephony/dataconnection/DataConnection.java b/src/java/com/android/internal/telephony/dataconnection/DataConnection.java
+index edc58af..163d8b2 100644
+--- a/src/java/com/android/internal/telephony/dataconnection/DataConnection.java
++++ b/src/java/com/android/internal/telephony/dataconnection/DataConnection.java
+@@ -584,6 +584,23 @@ public class DataConnection extends StateMachine {
+     }
+ 
+     /**
++     * Get the technology that will be used to setup the data connection.
++     *
++     * @param radioTechnology is the ril radio technology.
++     */
++    private String getDataTechnology(int radioTechnology) {
++        int dataTechnology = radioTechnology + 2;
++        if (mPhone.mCi.getRilVersion() < 5) {
++            if (ServiceState.isGsm(radioTechnology)) {
++                dataTechnology = RILConstants.SETUP_DATA_TECH_GSM;
++            } else if (ServiceState.isCdma(radioTechnology)) {
++                dataTechnology = RILConstants.SETUP_DATA_TECH_CDMA;
++            }
++        }
++        return Integer.toString(dataTechnology);
++    }
++
++    /**
+      * TearDown the data connection when the deactivation is complete a Message with
+      * msg.what == EVENT_DEACTIVATE_DONE and msg.obj == AsyncResult with AsyncResult.obj
+      * containing the parameter o.
+-- 
+2.7.4
+

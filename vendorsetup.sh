@@ -18,4 +18,6 @@
 # In particular, you can add lunch options with the add_lunch_combo
 # function: add_lunch_combo generic-eng
 
-add_lunch_combo cm_ancora_tmo-userdebug
+sh device/samsung/ancora_tmo/patches/apply.sh
+add_lunch_combo lineage_ancora_tmo-userdebug
+
